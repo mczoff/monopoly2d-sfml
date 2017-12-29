@@ -30,3 +30,26 @@ void GameWindow::close()
 {
 	window->close();
 }
+
+void GameWindow::draw()
+{
+	for (int i = 0; i < drawable_objects.size(); i++)
+	{
+		window->draw(*drawable_objects.at(i));
+	}
+}
+
+void GameWindow::render()
+{
+	window->display();
+}
+
+void GameWindow::clear()
+{
+	drawable_objects.clear();
+}
+
+void GameWindow::add(sf::Drawable* i_object)
+{
+	drawable_objects.push_back(i_object);
+}

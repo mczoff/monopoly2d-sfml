@@ -27,6 +27,9 @@
     <ClCompile Include="GameWindow.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
+    <ClCompile Include="Logo.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Options.h">
@@ -36,6 +39,9 @@
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
     <ClInclude Include="GameWindow.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="Logo.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
   </ItemGroup>

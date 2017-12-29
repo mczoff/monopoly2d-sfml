@@ -19,8 +19,17 @@ bool Game::open()
 
 	while (gamewindow->isOpen())
 	{
+		gamewindow->add();
+
+		gamewindow->draw();
+
 		gamewindow->procEvents();
+
+		
+		gamewindow->render();
+		gamewindow->clear();
 	}
 
 	return 0;
 }
+
