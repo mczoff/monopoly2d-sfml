@@ -32,4 +32,4 @@
 *.app
 
 #AutoPCH
-monopoly2d-sfml/monopoly2d-sfml/.vs/monopoly2d-sfml/v15/ipch/
+*.ipch
