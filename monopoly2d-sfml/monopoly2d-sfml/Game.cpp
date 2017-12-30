@@ -17,15 +17,14 @@ bool Game::open()
 
 	gamewindow = new GameWindow(options->getwidth(),options->getheight(),options->getnameWindow());
 
+	logoservice = new LogoService();
+	logoservice->loadlogo("logo / rhorvald.jpg");
+	logoservice->showlogo();
+
 	while (gamewindow->isOpen())
 	{
-		gamewindow->add();
-
-		gamewindow->draw();
-
 		gamewindow->procEvents();
 
-		
 		gamewindow->render();
 		gamewindow->clear();
 	}

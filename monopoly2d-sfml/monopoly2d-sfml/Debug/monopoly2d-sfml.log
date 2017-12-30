@@ -1,3 +1,6 @@
-﻿  Options.cpp
+﻿  Logo.cpp
+  GameWindow.cpp
+c:\users\mczoff\documents\github\monopoly2d-sfml\monopoly2d-sfml\monopoly2d-sfml\gamewindow.cpp(36): warning C4018: <: несоответствие типов со знаком и без знака
+  Создание кода...
   monopoly2d-sfml.vcxproj -> C:\Users\McZoff\Documents\GitHub\monopoly2d-sfml\monopoly2d-sfml\Debug\monopoly2d-sfml.exe
   monopoly2d-sfml.vcxproj -> C:\Users\McZoff\Documents\GitHub\monopoly2d-sfml\monopoly2d-sfml\Debug\monopoly2d-sfml.pdb (Partial PDB)

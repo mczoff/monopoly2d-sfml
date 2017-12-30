@@ -53,3 +53,8 @@ void GameWindow::add(sf::Drawable* i_object)
 {
 	drawable_objects.push_back(i_object);
 }
+
+sf::RenderWindow* GameWindow::getWindow()
+{
+	return window;
+}

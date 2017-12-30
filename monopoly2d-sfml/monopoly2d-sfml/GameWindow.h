@@ -22,6 +22,8 @@ public:
 
 	void add(sf::Drawable* i_object);
 
+	sf::RenderWindow* getWindow();
+
 	GameWindow(int i_width, int i_height, char* i_name);	
 	virtual ~GameWindow();
 };
