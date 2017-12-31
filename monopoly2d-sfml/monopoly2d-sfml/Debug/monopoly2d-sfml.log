@@ -1,6 +1,10 @@
-﻿  Logo.cpp
-  GameWindow.cpp
-c:\users\mczoff\documents\github\monopoly2d-sfml\monopoly2d-sfml\monopoly2d-sfml\gamewindow.cpp(36): warning C4018: <: несоответствие типов со знаком и без знака
+﻿  LogoService.cpp
+c:\users\mczoff\documents\github\monopoly2d-sfml\monopoly2d-sfml\monopoly2d-sfml\logoservice.cpp(46): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+  Logo.cpp
   Создание кода...
+  Пропуск... (изменения не обнаружены)
+  main.cpp
+  Options.cpp
+  Game.cpp
   monopoly2d-sfml.vcxproj -> C:\Users\McZoff\Documents\GitHub\monopoly2d-sfml\monopoly2d-sfml\Debug\monopoly2d-sfml.exe
   monopoly2d-sfml.vcxproj -> C:\Users\McZoff\Documents\GitHub\monopoly2d-sfml\monopoly2d-sfml\Debug\monopoly2d-sfml.pdb (Partial PDB)

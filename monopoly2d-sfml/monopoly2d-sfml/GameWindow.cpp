@@ -2,9 +2,10 @@
 
 
 
-GameWindow::GameWindow(int i_width, int i_height, char* i_name)
+GameWindow::GameWindow(int i_width, int i_height, char* i_name, int i_style)
 {
-	window = new sf::RenderWindow(sf::VideoMode(i_width, i_height), i_name);
+	window = new sf::RenderWindow(sf::VideoMode(i_width, i_height), i_name, sf::Uint32(i_style));
+	
 }
 
 

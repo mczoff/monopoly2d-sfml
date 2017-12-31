@@ -7,8 +7,8 @@
 class GameWindow
 {
 	sf::RenderWindow* window;
-	
 	std::vector<sf::Drawable*> drawable_objects;
+	
 	
 public:
 
@@ -24,7 +24,7 @@ public:
 
 	sf::RenderWindow* getWindow();
 
-	GameWindow(int i_width, int i_height, char* i_name);	
+	GameWindow(int i_width, int i_height, char* i_name, int i_style);
 	virtual ~GameWindow();
 };
 

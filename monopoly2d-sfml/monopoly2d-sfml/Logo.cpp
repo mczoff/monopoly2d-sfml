@@ -4,6 +4,8 @@
 
 Logo::Logo(char* i_path)
 {
+	Options* options = Options::getInstance();
+	
 	image = new sf::Image();
 	texture = new sf::Texture();
 	sprite = new sf::Sprite();
@@ -12,7 +14,11 @@ Logo::Logo(char* i_path)
 	texture->loadFromImage(*image);
 	sprite->setTexture(*texture);
 
-	contrast = 255;
+	sprite->setScale(
+		options->getwidth() / sprite->getLocalBounds().width,
+		options->getheight() / sprite->getLocalBounds().height);
+
+	contrast = 0;
 }
 
 
@@ -37,19 +43,24 @@ sf::Sprite* Logo::getSprite()
 
 void Logo::incContrast(double value)
 {
-	if (contrast > 254)
+	if (contrast > 255)
 		return;
 	contrast += value;
+}
+
+void Logo::decContrast(double value)
+{
+	if (contrast < 0)
+		return;
+	contrast -= value;
+}
+
+double Logo::getConsrast()
+{
+	return contrast;
 }
 
 void Logo::update()
 {
 	sprite->setColor(sf::Color((int)contrast, (int)contrast, (int)contrast, 255));
-}
-
-void Logo::decContrast(double value)
-{
-	if (contrast < 1)
-		return;
-	contrast -= value;
 }

@@ -2,8 +2,7 @@
 
 
 
-LogoService::LogoService() :
-	thread(&LogoService::showinglogo, this) 
+LogoService::LogoService()
 {
 }
 
@@ -12,99 +11,46 @@ LogoService::~LogoService()
 {
 }
 
-void LogoService::showinglogo()
-{
-	mutex.lock();
-	
-	
 
-	mutex.unlock();
-}
-
-void LogoService::showlogo()
+void LogoService::showlogo(GameWindow* i_window, double i_pow, double i_seconds)
 {
-	thread.launch();
-	thread.terminate();
-}
+	while (i_window->isOpen())
+	{
+		if (!autoselectcontrast(i_pow, i_seconds))
+			return;
 
-void LogoService::setparams(double i_seconds, GameWindow* i_window, double i_pow)
-{
-	seconds = i_seconds;
-	window = i_window;
-	pow = i_pow;
+		logo->update();
+		i_window->add(logo->getSprite());	
+		i_window->draw();
+		i_window->procEvents();
+		i_window->render();
+		i_window->clear();
+	}
 }
 
 void LogoService::loadlogo(char* i_path)
 {
 	logo = Logo::loadLogoFromFile(i_path);
+	mode = 0;
 }
 
-#include <SFML/Graphics.hpp>
-#include <SFML/System.hpp>
+bool LogoService::autoselectcontrast(double i_pow, double i_seconds)
+{
+	if (mode == 0)
+	{
+		logo->incContrast(i_pow);
 
-//struct ML
-//{
-//	sf::Mutex mutex;
-//	size_t data;
-//};
-//
-//
-//
-//void logic(ML * ml)
-//{
-//	while (true)
-//	{
-//		sf::sleep(sf::seconds(1));
-//		sf::Lock(ml->mutex);
-//		++ml->data;
-//		if (ml->data == 3)
-//		{
-//			ml->data = 0;
-//		}
-//	}
-//
-//}
-//
-//
-//
-//
-//
-//
-//
-//int main()
-//{
-//	sf::RenderWindow wnd(sf::VideoMode(600, 400), "timer test");
-//	sf::RectangleShape rects[3] =
-//	{
-//		sf::RectangleShape(sf::Vector2f(50,50)) ,
-//		sf::RectangleShape(sf::Vector2f(75,75)) ,
-//		sf::RectangleShape(sf::Vector2f(100,100))
-//	};
-//
-//	rects[0].setFillColor(sf::Color::Red);
-//	rects[1].setFillColor(sf::Color::Blue);
-//	rects[2].setFillColor(sf::Color::Green);
-//
-//	ML rect_st;
-//	rect_st.data = 0;
-//	sf::Thread th(logic, &rect_st);
-//	th.launch();
-//	while (wnd.isOpen())
-//	{
-//
-//		sf::Event event;
-//		while (wnd.pollEvent(event))
-//		{
-//			if (event.type == sf::Event::Closed)
-//				wnd.close();
-//		}
-//		wnd.clear();
-//		rect_st.mutex.lock();//sf::Lock  lock(rect_st.mutex) ;
-//		wnd.draw(rects[rect_st.data]);
-//		rect_st.mutex.unlock();
-//		wnd.display();
-//	}
-//	th.terminate();
-//
-//
-//}
+		if ((int)logo->getConsrast() == 255)
+		{
+			mode = 1;
+			sf::sleep(sf::seconds(i_seconds));
+		}
+	}
+	if (mode == 1)
+	{
+		logo->decContrast(i_pow);
+		if ((int)logo->getConsrast() == 0)
+			return false;
+	}
+	return true;
+}

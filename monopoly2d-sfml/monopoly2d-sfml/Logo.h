@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SFML\Graphics.hpp"
+#include "Options.h"
 
 class Logo
 {
@@ -18,9 +19,11 @@ public:
 
 	virtual ~Logo();
 
+
 	void incContrast(double value);
-	void update();
+	double getConsrast();
 	void decContrast(double value);
+	void update();
 
 };
 

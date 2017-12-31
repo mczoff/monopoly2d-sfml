@@ -3,23 +3,19 @@
 #include "SFML\Graphics.hpp"
 #include "Logo.h"
 #include "GameWindow.h"
+#include "Options.h"
+
+#include <windows.h>
 
 class LogoService
 {
-	sf::Mutex mutex;
-	sf::Thread thread;
-	sf::Clock clock;
-
-	GameWindow* window;
+	int mode = 0;
 	Logo* logo;
-	double seconds;
-	double pow;
 
-	void showinglogo();
+	bool autoselectcontrast(double i_pow, double i_seconds);
 public:
-	void showlogo();
+	void showlogo(GameWindow* i_window, double i_pow, double i_seconds = 0);
 	void loadlogo(char* path);
-	void setparams(double i_seconds, GameWindow* i_window, double i_pow);
 	LogoService();
 	virtual ~LogoService();
 };

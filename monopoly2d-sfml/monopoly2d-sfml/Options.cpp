@@ -17,8 +17,18 @@ Options::~Options()
 
 void Options::loadDefault()
 {
-	setwidth(1280);
-	setheight(780);
+	if (flagStyleWindow == sf::Style::Fullscreen)
+	{
+		std::vector<sf::VideoMode> ss = sf::VideoMode::getFullscreenModes();
+
+		setwidth(ss[0].width);
+		setheight(ss[0].height);
+	}
+	else
+	{
+		setwidth(1280);
+		setheight(720);
+	}
 	setnameWindow("Monopoly2d");
 }
 
@@ -58,4 +68,9 @@ void Options::setheight(int inner_height)
 void Options::setnameWindow(char* inner_name)
 {
 	nameWindow = inner_name;
+}
+
+int Options::getStyleFlag()
+{
+	return flagStyleWindow;
 }
