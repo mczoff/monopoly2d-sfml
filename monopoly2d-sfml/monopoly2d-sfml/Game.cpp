@@ -19,12 +19,13 @@ bool Game::open()
 	gamemenu = new GameMenu(gamewindow);
 
 
-	//TODO Logo all videomodes
 	//logoservice->loadlogo("logo/rhorvald.jpg");
-	//->showlogo(gamewindow, 0.3, 2);
+	//logoservice->showlogo(gamewindow, 0.3, 2);
 
-	//TODO FIZTEH LOGO
-	//logoservice->loadlogo("logo/rhorvald.jpg");
+	//logoservice->loadlogo("logo/kt.jpg");
+	//logoservice->showlogo(gamewindow, 0.3, 2);
+
+	//logoservice->loadlogo("logo/ptf.jpg");
 	//logoservice->showlogo(gamewindow, 0.3, 2);
 
 	gamemenu->show();

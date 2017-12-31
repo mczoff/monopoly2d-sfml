@@ -1,14 +1,3 @@
-﻿  Options.cpp
-  GameMenu.cpp
-c:\users\mczoff\documents\github\monopoly2d-sfml\monopoly2d-sfml\monopoly2d-sfml\gamemenu.cpp(27): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-  Создание кода...
-  Компиляция...
-  main.cpp
-  Game.cpp
-  Создание кода...
-  Пропуск... (изменения не обнаружены)
-  LogoService.cpp
-  Logo.cpp
-  Background.cpp
+﻿  Game.cpp
   monopoly2d-sfml.vcxproj -> C:\Users\McZoff\Documents\GitHub\monopoly2d-sfml\monopoly2d-sfml\Debug\monopoly2d-sfml.exe
   monopoly2d-sfml.vcxproj -> C:\Users\McZoff\Documents\GitHub\monopoly2d-sfml\monopoly2d-sfml\Debug\monopoly2d-sfml.pdb (Partial PDB)
