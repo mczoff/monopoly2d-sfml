@@ -32,7 +32,6 @@ Logo::~Logo()
 Logo* Logo::loadLogoFromFile(char* i_path)
 {
 	Logo* tmp = new Logo(i_path);
-
 	return tmp;
 }
 
