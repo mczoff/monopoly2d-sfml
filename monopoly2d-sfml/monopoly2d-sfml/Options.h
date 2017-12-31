@@ -15,15 +15,18 @@ class Options
 	int width;
 	int height;
 
-
+	int musicvolume;
+	
 	Options();
 public:
 	static Options* getInstance();
 
+	int getmusicvolume();
 	int getwidth();
 	int getheight();
 	char* getnameWindow();
 
+	void setmusicvolume(int i_volume);
 	void setwidth(int inner_width);
 	void setheight(int inner_height);
 	void setnameWindow(char* inner_name);

@@ -20,8 +20,8 @@ bool Game::open()
 
 
 	//TODO Logo all videomodes
-	logoservice->loadlogo("logo/rhorvald.jpg");
-	logoservice->showlogo(gamewindow, 0.3, 2);
+	//logoservice->loadlogo("logo/rhorvald.jpg");
+	//->showlogo(gamewindow, 0.3, 2);
 
 	//TODO FIZTEH LOGO
 	//logoservice->loadlogo("logo/rhorvald.jpg");

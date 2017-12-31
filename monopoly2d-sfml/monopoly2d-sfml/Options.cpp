@@ -13,8 +13,6 @@ Options::~Options()
 {
 }
 
-
-
 void Options::loadDefault()
 {
 	if (flagStyleWindow == sf::Style::Fullscreen)
@@ -30,6 +28,7 @@ void Options::loadDefault()
 		setheight(720);
 	}
 	setnameWindow("Monopoly2d");
+	setmusicvolume(100);
 }
 
 Options* Options::getInstance()
@@ -55,6 +54,16 @@ int Options::getheight()
 	return height;
 }
 
+int Options::getStyleFlag()
+{
+	return flagStyleWindow;
+}
+
+int Options::getmusicvolume()
+{
+	return musicvolume;
+}
+
 void Options::setwidth(int inner_width)
 {
 	width = inner_width;
@@ -70,7 +79,7 @@ void Options::setnameWindow(char* inner_name)
 	nameWindow = inner_name;
 }
 
-int Options::getStyleFlag()
+void Options::setmusicvolume(int i_volume)
 {
-	return flagStyleWindow;
+	musicvolume = i_volume;
 }

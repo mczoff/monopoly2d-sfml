@@ -121,22 +121,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AudioService.cpp" />
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameButton.cpp" />
     <ClCompile Include="GameWindow.cpp" />
     <ClCompile Include="Logo.cpp" />
     <ClCompile Include="LogoService.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="GameMenu.cpp" />
+    <ClCompile Include="MusicService.cpp" />
     <ClCompile Include="Options.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AudioService.h" />
     <ClInclude Include="Background.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameButton.h" />
     <ClInclude Include="GameWindow.h" />
     <ClInclude Include="Logo.h" />
     <ClInclude Include="LogoService.h" />
     <ClInclude Include="GameMenu.h" />
+    <ClInclude Include="MusicService.h" />
     <ClInclude Include="Options.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
