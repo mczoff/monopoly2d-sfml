@@ -10,7 +10,11 @@ class GameMenu
 	Options* options;
 	Background* background;
 	GameWindow* gamewindow;
+	
 	GameButton* bt_newGame;
+	GameButton* bt_options;
+	GameButton* bt_exit;
+
 	MusicService* musicservice;
 
 public:

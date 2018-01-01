@@ -70,17 +70,20 @@ sf::Sprite* ClickableObject::getpressed_sprite()
 	return pressed_sprite;
 }
 
-bool ClickableObject::isHover(sf::Vector2i i_mouseposition)
+int ClickableObject::refreshState(sf::Vector2i i_mouseposition)
 {
+	
 	if (
 		   i_mouseposition.x > position.x
 		&& i_mouseposition.x < position.x + getcurrentSprite()->getLocalBounds().width
 		&& i_mouseposition.y > position.y
 		&& i_mouseposition.y < position.y + getcurrentSprite()->getLocalBounds().height)
 	{
-		return true;
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+			return 2;
+		return 1;
 	}
-	return false;
+	return 0;
 }
 
 void ClickableObject::setState(int i_state)

@@ -41,9 +41,8 @@ public:
 	void loadsource_imageFromFile(char* i_path);
 	void loadhover_imageFromFile(char* i_path);
 	void loadpressed_imageFromFile(char* i_path);
-	//
 
-	bool isHover(sf::Vector2i position);
+	int refreshState(sf::Vector2i position);
 	void setState(int i_state);
 
 	int getcurrentstate();
