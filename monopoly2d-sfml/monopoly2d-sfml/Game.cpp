@@ -18,14 +18,13 @@ bool Game::open()
 	logoservice = new LogoService();
 	gamemenu = new GameMenu(gamewindow);
 
-
-	//logoservice->loadlogo("logo/rhorvald.jpg");
+	//logoservice->loadlogo("logo/ptf.jpg");
 	//logoservice->showlogo(gamewindow, 0.3, 2);
 
 	//logoservice->loadlogo("logo/kt.jpg");
 	//logoservice->showlogo(gamewindow, 0.3, 2);
 
-	//logoservice->loadlogo("logo/ptf.jpg");
+	//logoservice->loadlogo("logo/rhorvald.jpg");
 	//logoservice->showlogo(gamewindow, 0.3, 2);
 
 	gamemenu->show();

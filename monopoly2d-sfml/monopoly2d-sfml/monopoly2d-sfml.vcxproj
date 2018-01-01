@@ -123,6 +123,7 @@
   <ItemGroup>
     <ClCompile Include="AudioService.cpp" />
     <ClCompile Include="Background.cpp" />
+    <ClCompile Include="ClickableObject.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameButton.cpp" />
     <ClCompile Include="GameWindow.cpp" />
@@ -136,6 +137,7 @@
   <ItemGroup>
     <ClInclude Include="AudioService.h" />
     <ClInclude Include="Background.h" />
+    <ClInclude Include="ClickableObject.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameButton.h" />
     <ClInclude Include="GameWindow.h" />

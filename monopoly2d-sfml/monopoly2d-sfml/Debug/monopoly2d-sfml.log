@@ -1,3 +1,7 @@
-﻿  Game.cpp
+﻿  ClickableObject.cpp
+c:\users\mczoff\documents\github\monopoly2d-sfml\monopoly2d-sfml\monopoly2d-sfml\clickableobject.cpp(115): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\mczoff\documents\github\monopoly2d-sfml\monopoly2d-sfml\monopoly2d-sfml\clickableobject.cpp(116): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\mczoff\documents\github\monopoly2d-sfml\monopoly2d-sfml\monopoly2d-sfml\clickableobject.cpp(117): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\mczoff\documents\github\monopoly2d-sfml\monopoly2d-sfml\monopoly2d-sfml\clickableobject.cpp(104): warning C4715: ClickableObject::getcurrentSprite: значение возвращается не при всех путях выполнения
   monopoly2d-sfml.vcxproj -> C:\Users\McZoff\Documents\GitHub\monopoly2d-sfml\monopoly2d-sfml\Debug\monopoly2d-sfml.exe
   monopoly2d-sfml.vcxproj -> C:\Users\McZoff\Documents\GitHub\monopoly2d-sfml\monopoly2d-sfml\Debug\monopoly2d-sfml.pdb (Partial PDB)

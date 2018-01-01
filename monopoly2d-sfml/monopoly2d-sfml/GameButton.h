@@ -2,26 +2,12 @@
 
 #include "SFML\Graphics.hpp"
 
-class GameButton
+#include "ClickableObject.h"
+
+class GameButton : public ClickableObject
 {
-	sf::Image source_image;
-	sf::Texture source_texture;
-	sf::Sprite source_sprite;
-
-	sf::Image hover_image;
-	sf::Texture hover_texture;
-	sf::Sprite hover_sprite;
-
-	sf::Image pressed_image;
-	sf::Texture pressed_texture;
-	sf::Sprite pressed_sprite;
-
 public:
-
-	void checkClick();
-	void setState(bool value);
-
-	GameButton(sf::Vector2f location);
+	GameButton(sf::Vector2i i_position, char* i_path_source, char* i_path_hover, char* i_path_pressed);
 	virtual ~GameButton();
 };
 
