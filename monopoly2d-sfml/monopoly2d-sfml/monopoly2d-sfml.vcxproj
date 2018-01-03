@@ -121,12 +121,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AudioService.cpp" />
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="ClickableObject.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameButton.cpp" />
-    <ClCompile Include="GameSound.cpp" />
     <ClCompile Include="GameWindow.cpp" />
     <ClCompile Include="Logo.cpp" />
     <ClCompile Include="LogoService.cpp" />
@@ -134,22 +132,21 @@
     <ClCompile Include="GameMenu.cpp" />
     <ClCompile Include="MusicService.cpp" />
     <ClCompile Include="Options.cpp" />
-    <ClCompile Include="SoundService.cpp" />
+    <ClCompile Include="SoundableObject.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AudioService.h" />
     <ClInclude Include="Background.h" />
     <ClInclude Include="ClickableObject.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameButton.h" />
-    <ClInclude Include="GameSound.h" />
     <ClInclude Include="GameWindow.h" />
     <ClInclude Include="Logo.h" />
     <ClInclude Include="LogoService.h" />
     <ClInclude Include="GameMenu.h" />
     <ClInclude Include="MusicService.h" />
     <ClInclude Include="Options.h" />
-    <ClInclude Include="SoundService.h" />
+    <ClInclude Include="SoundableObject.h" />
+    <ClInclude Include="StateObject.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

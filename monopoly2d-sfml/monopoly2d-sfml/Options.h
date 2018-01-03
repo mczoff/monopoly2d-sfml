@@ -8,7 +8,7 @@ class Options
 {
 	static Options* instance;
 
-	int flagStyleWindow = sf::Style::Default;
+	int flagStyleWindow = sf::Style::Fullscreen;
 	//TODO: CHECK CUSTOM OPTIONS 
 
 	char* nameWindow;

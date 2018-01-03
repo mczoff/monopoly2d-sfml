@@ -70,7 +70,7 @@ sf::Sprite* ClickableObject::getpressed_sprite()
 	return pressed_sprite;
 }
 
-int ClickableObject::refreshState(sf::Vector2i i_mouseposition)
+void ClickableObject::refreshState(sf::Vector2i i_mouseposition)
 {
 	
 	if (
@@ -80,10 +80,15 @@ int ClickableObject::refreshState(sf::Vector2i i_mouseposition)
 		&& i_mouseposition.y < position.y + getcurrentSprite()->getLocalBounds().height)
 	{
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
-			return 2;
-		return 1;
+		{
+			setState(2);
+			return;
+		}
+		setState(1);
+		return;
 	}
-	return 0;
+	setState(0);
+	return;
 }
 
 void ClickableObject::setState(int i_state)
@@ -98,11 +103,11 @@ int ClickableObject::getcurrentstate()
 
 sf::Sprite* ClickableObject::getcurrentSprite()
 {
-	if (state == StateClickableObject::None)
+	if (state == StateObject::None)
 		return source_sprite;
-	if (state == StateClickableObject::Hover)
+	if (state == StateObject::Hover)
 		return hover_sprite;
-	if (state == StateClickableObject::Click)
+	if (state == StateObject::Click)
 		return pressed_sprite;
 	return NULL;
 }

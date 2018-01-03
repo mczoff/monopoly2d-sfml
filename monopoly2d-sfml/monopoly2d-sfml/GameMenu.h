@@ -5,12 +5,15 @@
 #include "MusicService.h"
 #include "Options.h"
 #include "GameButton.h"
+
+#include "StateObject.h"
+
 class GameMenu
 {
 	Options* options;
 	Background* background;
 	GameWindow* gamewindow;
-	
+
 	GameButton* bt_newGame;
 	GameButton* bt_options;
 	GameButton* bt_exit;

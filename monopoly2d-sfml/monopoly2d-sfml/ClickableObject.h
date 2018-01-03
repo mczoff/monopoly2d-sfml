@@ -1,12 +1,7 @@
 
 #include "SFML\Graphics.hpp"
 
-enum StateClickableObject
-{
-	None,
-	Hover,
-	Click	
-};
+#include "StateObject.h"
 
 class ClickableObject
 {
@@ -42,7 +37,7 @@ public:
 	void loadhover_imageFromFile(char* i_path);
 	void loadpressed_imageFromFile(char* i_path);
 
-	int refreshState(sf::Vector2i position);
+	void refreshState(sf::Vector2i position);
 	void setState(int i_state);
 
 	int getcurrentstate();
