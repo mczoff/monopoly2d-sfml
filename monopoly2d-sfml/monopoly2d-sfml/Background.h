@@ -1,16 +1,17 @@
 #pragma once
 
 #include "SFML\Graphics.hpp"
-
+#include "StaticGraphicObject.h"
 #include "Options.h"
 
-class Background
+class Background 
 {
-	sf::Image* image;
-	sf::Texture* texture;
-	sf::Sprite* sprite;
-	
+	StaticGraphicObject* object;
+
 	Background(char* i_path);
+
+	StaticGraphicObject* getobject();
+
 
 public:
 	

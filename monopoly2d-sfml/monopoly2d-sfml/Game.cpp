@@ -14,9 +14,9 @@ Game::~Game()
 bool Game::open()
 {
 	options = Options::getInstance();
-	gamewindow = new GameWindow(options->getwidth(),options->getheight(),options->getnameWindow(),options->getStyleFlag());
+	gamewindow = GameWindow::createInstance(options->getwidth(),options->getheight(),options->getnameWindow(),options->getStyleFlag());
 	logoservice = new LogoService();
-	gamemenu = new GameMenu(gamewindow);
+	gamemenu = new GameMenu();
 
 	//logoservice->loadlogo("logo/ptf.jpg");
 	//logoservice->showlogo(gamewindow, 0.3, 2);

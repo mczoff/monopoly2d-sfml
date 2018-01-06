@@ -1,10 +1,10 @@
 #include "GameWindow.h"
 
+GameWindow* GameWindow::instance = 0;
 
-
-GameWindow::GameWindow(int i_width, int i_height, char* i_name, int i_style)
+GameWindow::GameWindow(int i_width, int i_height, char* i_name, sf::Uint32 i_style)
 {
-	window = new sf::RenderWindow(sf::VideoMode(i_width, i_height), i_name, sf::Uint32(i_style));
+	window = new sf::RenderWindow(sf::VideoMode(i_width, i_height), i_name, i_style);
 }
 
 
@@ -57,4 +57,17 @@ void GameWindow::add(sf::Drawable* i_object)
 sf::RenderWindow* GameWindow::getWindow()
 {
 	return window;
+}
+
+GameWindow* GameWindow::getInstance()
+{
+	if (instance == 0)
+		throw 0;
+	return instance;
+}
+
+GameWindow* GameWindow::createInstance(int i_width, int i_height, char* i_name, sf::Uint32 i_style)
+{
+	instance = new GameWindow(i_width, i_height, i_name, i_style);
+	return instance;
 }

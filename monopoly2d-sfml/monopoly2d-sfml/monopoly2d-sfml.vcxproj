@@ -123,6 +123,7 @@
   <ItemGroup>
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="ClickableObject.cpp" />
+    <ClCompile Include="ExitCommand.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameButton.cpp" />
     <ClCompile Include="GameWindow.cpp" />
@@ -132,21 +133,31 @@
     <ClCompile Include="GameMenu.cpp" />
     <ClCompile Include="MusicService.cpp" />
     <ClCompile Include="Options.cpp" />
+    <ClCompile Include="OpenOptionsCommand.cpp" />
+    <ClCompile Include="OptionsMenu.cpp" />
     <ClCompile Include="SoundableObject.cpp" />
+    <ClCompile Include="StaticGraphicObject.cpp" />
+    <ClCompile Include="WindowCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Background.h" />
     <ClInclude Include="ClickableObject.h" />
+    <ClInclude Include="ExitCommand.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameButton.h" />
     <ClInclude Include="GameWindow.h" />
+    <ClInclude Include="ICommand.h" />
     <ClInclude Include="Logo.h" />
     <ClInclude Include="LogoService.h" />
     <ClInclude Include="GameMenu.h" />
     <ClInclude Include="MusicService.h" />
     <ClInclude Include="Options.h" />
+    <ClInclude Include="OpenOptionsCommand.h" />
+    <ClInclude Include="OptionsMenu.h" />
     <ClInclude Include="SoundableObject.h" />
     <ClInclude Include="StateObject.h" />
+    <ClInclude Include="StaticGraphicObject.h" />
+    <ClInclude Include="WindowCommand.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

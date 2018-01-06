@@ -2,6 +2,7 @@
 #include "SFML\Graphics.hpp"
 
 #include "StateObject.h"
+#include "StaticGraphicObject.h"
 
 class ClickableObject
 {
@@ -9,19 +10,9 @@ class ClickableObject
 
 	sf::Vector2i position;
 
-	
-
-	sf::Image* source_image;
-	sf::Texture* source_texture;
-	sf::Sprite* source_sprite;
-
-	sf::Image* hover_image;
-	sf::Texture* hover_texture;
-	sf::Sprite* hover_sprite;
-
-	sf::Image* pressed_image;
-	sf::Texture* pressed_texture;
-	sf::Sprite* pressed_sprite;
+	StaticGraphicObject* source;
+	StaticGraphicObject* hover;
+	StaticGraphicObject* pressed;
 
 	sf::Sprite* getsource_sprite();
 	sf::Sprite* gethover_sprite();
@@ -29,7 +20,7 @@ class ClickableObject
 
 protected:
 	sf::Vector2i getposition();
-	void setposition(sf::Vector2i i_position);
+	void setLocation(sf::Vector2i i_position);
 
 public:
 

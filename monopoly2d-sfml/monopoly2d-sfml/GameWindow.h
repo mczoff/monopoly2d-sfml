@@ -6,10 +6,11 @@
 
 class GameWindow
 {
+	static GameWindow* instance;
 	sf::RenderWindow* window;
 	std::vector<sf::Drawable*> drawable_objects;
 	
-	
+	GameWindow(int i_width, int i_height, char* i_name, sf::Uint32 i_style);
 public:
 
 	bool isOpen();
@@ -21,10 +22,11 @@ public:
 	void clear();
 
 	void add(sf::Drawable* i_object);
-
 	sf::RenderWindow* getWindow();
 
-	GameWindow(int i_width, int i_height, char* i_name, int i_style);
+	static GameWindow* getInstance();
+	static GameWindow* createInstance(int i_width, int i_height, char* i_name, sf::Uint32 i_style);
+
 	virtual ~GameWindow();
 };
 

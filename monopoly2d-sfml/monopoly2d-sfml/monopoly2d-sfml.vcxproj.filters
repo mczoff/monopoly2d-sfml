@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Commands">
+      <UniqueIdentifier>{231d9bbb-3338-471f-90f8-cb3bee3034f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\h files">
+      <UniqueIdentifier>{6bcc41db-ef44-47ca-a972-c148522c8f18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\cpp files">
+      <UniqueIdentifier>{c028450b-0913-442b-9c0b-84efb922bdc5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -51,6 +60,21 @@
     <ClCompile Include="SoundableObject.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
+    <ClCompile Include="ExitCommand.cpp">
+      <Filter>Commands\cpp files</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowCommand.cpp">
+      <Filter>Commands\cpp files</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticGraphicObject.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionsMenu.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenOptionsCommand.cpp">
+      <Filter>Commands\cpp files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Options.h">
@@ -88,6 +112,24 @@
     </ClInclude>
     <ClInclude Include="StateObject.h">
       <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="ExitCommand.h">
+      <Filter>Commands\h files</Filter>
+    </ClInclude>
+    <ClInclude Include="ICommand.h">
+      <Filter>Commands\h files</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowCommand.h">
+      <Filter>Commands\h files</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticGraphicObject.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsMenu.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenOptionsCommand.h">
+      <Filter>Commands\h files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

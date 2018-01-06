@@ -3,18 +3,19 @@
 
 class MusicService
 {
+	//TODO SINGLETONE
 	sf::Music* music;
 
 
 public:
-	
+	//TODO PLAYLIST
 	void play();
 	void openFromFile(char* i_path);
 	void stop();
 	void pause();
-	void setvolume(float volume);
+	void setvolume(float i_volume);
 	void clear();
-
+	void setloop(bool i_value);
 	bool isPlaying();
 
 	MusicService();

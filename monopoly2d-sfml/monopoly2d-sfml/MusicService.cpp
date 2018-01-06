@@ -7,6 +7,12 @@ MusicService::MusicService()
 	music = new sf::Music();
 }
 
+void MusicService::setloop(bool i_value)
+{
+	music->setLoop(i_value);
+}
+
+
 MusicService::~MusicService()
 {
 	delete music;
@@ -36,9 +42,9 @@ void MusicService::clear()
 	delete music;
 }
 
-void MusicService::setvolume(float volume)
+void MusicService::setvolume(float i_volume)
 {
-	music->setVolume(volume);
+	music->setVolume(i_volume);
 }
 
 bool MusicService::isPlaying()
