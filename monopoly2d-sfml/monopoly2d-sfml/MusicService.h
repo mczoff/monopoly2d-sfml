@@ -14,6 +14,7 @@ public:
 	void stop();
 	void pause();
 	void setvolume(float i_volume);
+	float getvolume();
 	void clear();
 	void setloop(bool i_value);
 	bool isPlaying();

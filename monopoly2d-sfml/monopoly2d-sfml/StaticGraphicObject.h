@@ -14,10 +14,10 @@ protected:
 public:
 
 	void setSize(sf::Vector2i i_size);
-	void setLocation(sf::Vector2i i_location);
+	void setPosition(sf::Vector2i i_location);
 
 	sf::Sprite* getSprite();
-	static StaticGraphicObject* loadBackgroundFromFile(char* i_path);
+	static StaticGraphicObject* loadFromFile(char* i_path);
 	virtual ~StaticGraphicObject();
 };
 

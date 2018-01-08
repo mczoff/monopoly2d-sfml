@@ -17,17 +17,17 @@ ClickableObject::~ClickableObject()
 
 void ClickableObject::loadsource_imageFromFile(char* i_path)
 {
-	source = StaticGraphicObject::loadBackgroundFromFile(i_path);
+	source = StaticGraphicObject::loadFromFile(i_path);
 }
 
 void ClickableObject::loadhover_imageFromFile(char* i_path)
 {
-	hover = StaticGraphicObject::loadBackgroundFromFile(i_path);
+	hover = StaticGraphicObject::loadFromFile(i_path);
 }
 
 void ClickableObject::loadpressed_imageFromFile(char* i_path)
 {
-	pressed = StaticGraphicObject::loadBackgroundFromFile(i_path);
+	pressed = StaticGraphicObject::loadFromFile(i_path);
 }
 
 
@@ -48,7 +48,6 @@ sf::Sprite* ClickableObject::getpressed_sprite()
 
 void ClickableObject::refreshState(sf::Vector2i i_mouseposition)
 {
-	
 	if (
 		   i_mouseposition.x > position.x
 		&& i_mouseposition.x < position.x + getcurrentSprite()->getLocalBounds().width
@@ -93,11 +92,29 @@ sf::Vector2i ClickableObject::getposition()
 	return position;
 }
 
-void ClickableObject::setLocation(sf::Vector2i i_position)
+void ClickableObject::setPosition(sf::Vector2i i_position)
 {
 	position = i_position;
 
-	source->setLocation(i_position);
-	hover->setLocation(i_position);
-	pressed->setLocation(i_position);
+	source->setPosition(i_position);
+	hover->setPosition(i_position);
+	pressed->setPosition(i_position);
 }
+
+void ClickableObject::doisclick(ICommand* i_command)
+{
+	if (getcurrentstate() == StateObject::Hover && laststate == StateObject::Click)
+		i_command->execute();
+	laststate = state;
+}
+
+bool ClickableObject::isclick()
+{
+	bool tmp = false;
+	if (getcurrentstate() == StateObject::Hover && laststate == StateObject::Click)
+		tmp = true;
+	laststate = state;
+	return tmp;
+}
+
+

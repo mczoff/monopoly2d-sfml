@@ -1,11 +1,15 @@
+#pragma once
 
 #include "SFML\Graphics.hpp"
 
 #include "StateObject.h"
 #include "StaticGraphicObject.h"
+#include "ICommand.h"
+#include "GameWindow.h"
 
 class ClickableObject
 {
+	int laststate;
 	int state;
 
 	sf::Vector2i position;
@@ -18,11 +22,9 @@ class ClickableObject
 	sf::Sprite* gethover_sprite();
 	sf::Sprite* getpressed_sprite();
 
-protected:
-	sf::Vector2i getposition();
-	void setLocation(sf::Vector2i i_position);
-
 public:
+	void doisclick(ICommand* i_command);
+	bool isclick();
 
 	void loadsource_imageFromFile(char* i_path);
 	void loadhover_imageFromFile(char* i_path);
@@ -30,9 +32,11 @@ public:
 
 	void refreshState(sf::Vector2i position);
 	void setState(int i_state);
+	void setPosition(sf::Vector2i i_position);
 
 	int getcurrentstate();
 	sf::Sprite* getcurrentSprite();
+	sf::Vector2i getposition();
 
 	ClickableObject();
 	virtual ~ClickableObject();

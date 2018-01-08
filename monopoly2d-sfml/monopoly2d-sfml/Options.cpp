@@ -5,6 +5,7 @@ Options* Options::instance = 0;
 
 Options::Options()
 {
+	
 	loadDefault();
 }
 
@@ -29,6 +30,26 @@ void Options::loadDefault()
 	}
 	setnameWindow("Monopoly2d");
 	setmusicvolume(100);
+}
+
+void Options::saveoptions(char* i_path)
+{
+	std::ofstream fout;
+	fout.open(i_path);
+
+	fout << musicvolume << std::endl;
+
+	fout.close();
+}
+
+void Options::loadoptions(char* i_path)
+{
+	std::ifstream fout;
+	fout.open(i_path);
+
+	fout >> musicvolume;
+
+	fout.close();
 }
 
 Options* Options::getInstance()
@@ -81,5 +102,7 @@ void Options::setnameWindow(char* inner_name)
 
 void Options::setmusicvolume(int i_volume)
 {
+	if (i_volume < 0 || i_volume > 100)
+		return;
 	musicvolume = i_volume;
 }

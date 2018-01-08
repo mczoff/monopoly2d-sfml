@@ -5,7 +5,7 @@
 Background::Background(char* i_path)
 {
 	Options* options = Options::getInstance();
-	object = StaticGraphicObject::loadBackgroundFromFile(i_path);
+	object = StaticGraphicObject::loadFromFile(i_path);
 	object->setSize(sf::Vector2i(options->getwidth(), options->getheight()));
 }
 

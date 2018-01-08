@@ -14,13 +14,7 @@ GameButton::~GameButton()
 {
 }
 
-void GameButton::doisclick(ICommand* i_command)
-{
-	if(getcurrentstate() == StateObject::Click)
-		i_command->execute();
-}
-
 void GameButton::setlocation(sf::Vector2i i_position)
 {
-	ClickableObject::setLocation(i_position);
+	ClickableObject::setPosition(i_position);
 }

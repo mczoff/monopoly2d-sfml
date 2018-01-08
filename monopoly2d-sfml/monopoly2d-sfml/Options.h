@@ -2,14 +2,14 @@
 
 #include "SFML\System.hpp"
 #include "SFML\Graphics.hpp"
-#include <vector>
+
+#include <fstream>
 
 class Options
 {
 	static Options* instance;
 
 	sf::Uint32 flagStyleWindow = sf::Style::Titlebar | sf::Style::Close;
-	//TODO: CHECK CUSTOM OPTIONS 
 
 	char* nameWindow;
 	int width;
@@ -34,7 +34,8 @@ public:
 	int getStyleFlag();
 
 	void loadDefault();
-
+	void saveoptions(char* i_path);
+	void loadoptions(char* i_path);
 	
 	~Options();
 };

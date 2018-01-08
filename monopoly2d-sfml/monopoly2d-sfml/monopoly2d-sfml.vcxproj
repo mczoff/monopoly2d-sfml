@@ -132,6 +132,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="GameMenu.cpp" />
     <ClCompile Include="MusicService.cpp" />
+    <ClCompile Include="MusicVolumeControl.cpp" />
     <ClCompile Include="Options.cpp" />
     <ClCompile Include="OpenOptionsCommand.cpp" />
     <ClCompile Include="OptionsMenu.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="LogoService.h" />
     <ClInclude Include="GameMenu.h" />
     <ClInclude Include="MusicService.h" />
+    <ClInclude Include="MusicVolumeControl.h" />
     <ClInclude Include="Options.h" />
     <ClInclude Include="OpenOptionsCommand.h" />
     <ClInclude Include="OptionsMenu.h" />

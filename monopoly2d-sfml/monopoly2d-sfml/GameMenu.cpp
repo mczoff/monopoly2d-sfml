@@ -22,9 +22,9 @@ GameMenu::GameMenu()
 	bt_options->setlocation(sf::Vector2i(options->getwidth() / 11, options->getheight() / 10 + 200));
 	bt_exit->setlocation(sf::Vector2i(options->getwidth() / 11, options->getheight() / 10 + 400));
 
-	man = StaticGraphicObject::loadBackgroundFromFile("src/man.png");
+	man = StaticGraphicObject::loadFromFile("src/man.png");
 	man->setSize(sf::Vector2i(400, 400));
-	man->setLocation(sf::Vector2i(
+	man->setPosition(sf::Vector2i(
 		options->getwidth() / 4 + options->getwidth() / 2 - man->getSprite()->getGlobalBounds().width / 2, 
 		options->getheight() / 2 - man->getSprite()->getGlobalBounds().height / 2));
 
@@ -48,9 +48,6 @@ GameMenu::~GameMenu()
 
 void GameMenu::show()
 {
-	//
-	options->setmusicvolume(10);
-	//
 	musicservice->openFromFile("src/menu/fon.wav");
 	musicservice->setvolume(options->getmusicvolume());
 	musicservice->setloop(true);
@@ -58,6 +55,13 @@ void GameMenu::show()
 
 	while (gamewindow->isOpen())
 	{
+		//MAYBE: DO EASIER
+		if (musicservice->getvolume() == 0 && options->getmusicvolume() != 0)
+			musicservice->play();
+		musicservice->setvolume(options->getmusicvolume());
+		if (musicservice->getvolume() == 0)
+			musicservice->stop();
+
 		bt_newGame->refreshState(sf::Mouse::getPosition(*gamewindow->getWindow()));
 		bt_options->refreshState(sf::Mouse::getPosition(*gamewindow->getWindow()));
 		bt_exit->refreshState(sf::Mouse::getPosition(*gamewindow->getWindow()));

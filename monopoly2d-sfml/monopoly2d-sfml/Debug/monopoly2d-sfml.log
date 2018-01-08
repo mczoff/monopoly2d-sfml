@@ -1,5 +1,6 @@
-﻿  OptionsMenu.cpp
-c:\users\mczoff\documents\github\monopoly2d-sfml\monopoly2d-sfml\monopoly2d-sfml\optionsmenu.cpp(15): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
-c:\users\mczoff\documents\github\monopoly2d-sfml\monopoly2d-sfml\monopoly2d-sfml\optionsmenu.cpp(21): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+﻿  GameMenu.cpp
+c:\users\mczoff\documents\github\monopoly2d-sfml\monopoly2d-sfml\monopoly2d-sfml\gamemenu.cpp(29): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+c:\users\mczoff\documents\github\monopoly2d-sfml\monopoly2d-sfml\monopoly2d-sfml\gamemenu.cpp(52): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\mczoff\documents\github\monopoly2d-sfml\monopoly2d-sfml\monopoly2d-sfml\gamemenu.cpp(61): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
   monopoly2d-sfml.vcxproj -> C:\Users\McZoff\Documents\GitHub\monopoly2d-sfml\monopoly2d-sfml\Debug\monopoly2d-sfml.exe
   monopoly2d-sfml.vcxproj -> C:\Users\McZoff\Documents\GitHub\monopoly2d-sfml\monopoly2d-sfml\Debug\monopoly2d-sfml.pdb (Partial PDB)

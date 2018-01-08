@@ -21,7 +21,7 @@ StaticGraphicObject::~StaticGraphicObject()
 	delete sprite;
 }
 
-StaticGraphicObject* StaticGraphicObject::loadBackgroundFromFile(char* i_path)
+StaticGraphicObject* StaticGraphicObject::loadFromFile(char* i_path)
 {
 	return new StaticGraphicObject(i_path);
 }
@@ -38,7 +38,7 @@ void StaticGraphicObject::setSize(sf::Vector2i i_size)
 		i_size.y / getSprite()->getGlobalBounds().height);
 }
 
-void StaticGraphicObject::setLocation(sf::Vector2i i_location)
+void StaticGraphicObject::setPosition(sf::Vector2i i_location)
 {
 	getSprite()->setPosition(sf::Vector2f(i_location.x,i_location.y));
 }

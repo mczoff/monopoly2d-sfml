@@ -6,6 +6,7 @@
 #include "GameButton.h"
 #include "GameWindow.h"
 #include "WindowCommand.h"
+#include "MusicVolumeControl.h"
 
 class OptionsMenu
 {
@@ -15,6 +16,7 @@ class OptionsMenu
 	Background* background;
 	GameButton* bt_exit;
 	MusicService* musicservice;
+	MusicVolumeControl* mvc;
 
 public:
 

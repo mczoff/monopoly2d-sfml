@@ -53,3 +53,8 @@ bool MusicService::isPlaying()
 		return true;
 	return false;
 }
+
+float MusicService::getvolume()
+{
+	return music->getVolume();
+}

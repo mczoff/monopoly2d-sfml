@@ -5,12 +5,12 @@
 
 #include "ClickableObject.h"
 #include "SoundableObject.h"
-#include "ICommand.h"
+
 
 class GameButton : public ClickableObject, public SoundableObject
 {
+	//TODO: SHOW CLICK ON BUTTON
 public:
-	void doisclick(ICommand* i_command);
 
 	void setlocation(sf::Vector2i i_position);
 
