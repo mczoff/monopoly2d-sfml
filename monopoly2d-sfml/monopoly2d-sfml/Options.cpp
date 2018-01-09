@@ -30,6 +30,7 @@ void Options::loadDefault()
 	}
 	setnameWindow("Monopoly2d");
 	setmusicvolume(100);
+	setsoundvolume(100);
 }
 
 void Options::saveoptions(char* i_path)
@@ -38,16 +39,24 @@ void Options::saveoptions(char* i_path)
 	fout.open(i_path);
 
 	fout << musicvolume << std::endl;
+	fout << soundvolume << std::endl;
 
 	fout.close();
 }
 
 void Options::loadoptions(char* i_path)
 {
-	std::ifstream fout;
-	fout.open(i_path);
+	//TODO: CHECK ISEXIST()
+
+	std::ifstream fout(i_path);
+	if (!fout)
+	{
+		loadDefault();
+		return;
+	}
 
 	fout >> musicvolume;
+	fout >> soundvolume;
 
 	fout.close();
 }
@@ -105,4 +114,16 @@ void Options::setmusicvolume(int i_volume)
 	if (i_volume < 0 || i_volume > 100)
 		return;
 	musicvolume = i_volume;
+}
+
+int Options::getsoundvolume()
+{
+	return soundvolume;
+}
+
+void Options::setsoundvolume(int i_volume)
+{
+	if (i_volume < 0 || i_volume > 100)
+		return;
+	soundvolume = i_volume;
 }

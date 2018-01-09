@@ -1,7 +1,6 @@
 #pragma once
 
 #include "WindowCommand.h"
-#include "Options.h"
 
 class ExitCommand : public WindowCommand
 {

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "SFML\Audio.hpp"
-
+#include "Options.h"
 
 #include "StateObject.h"
 

@@ -136,8 +136,11 @@
     <ClCompile Include="Options.cpp" />
     <ClCompile Include="OpenOptionsCommand.cpp" />
     <ClCompile Include="OptionsMenu.cpp" />
+    <ClCompile Include="ResolutionControl.cpp" />
     <ClCompile Include="SoundableObject.cpp" />
+    <ClCompile Include="SoundVolumeControl.cpp" />
     <ClCompile Include="StaticGraphicObject.cpp" />
+    <ClCompile Include="VolumeControl.cpp" />
     <ClCompile Include="WindowCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -156,9 +159,12 @@
     <ClInclude Include="Options.h" />
     <ClInclude Include="OpenOptionsCommand.h" />
     <ClInclude Include="OptionsMenu.h" />
+    <ClInclude Include="ResolutionControl.h" />
     <ClInclude Include="SoundableObject.h" />
+    <ClInclude Include="SoundVolumeControl.h" />
     <ClInclude Include="StateObject.h" />
     <ClInclude Include="StaticGraphicObject.h" />
+    <ClInclude Include="VolumeControl.h" />
     <ClInclude Include="WindowCommand.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

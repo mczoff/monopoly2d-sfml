@@ -18,6 +18,9 @@ SoundableObject::~SoundableObject()
 
 void SoundableObject::playSound(int i_state)
 {
+	click_sound->setVolume(Options::getInstance()->getsoundvolume());
+	hover_sound->setVolume(Options::getInstance()->getsoundvolume());
+
 	if (i_state == StateObject::Hover && state == StateObject::None)
 		if(hover_sound->getStatus() != sf::Sound::Status::Playing)
 			hover_sound->play();

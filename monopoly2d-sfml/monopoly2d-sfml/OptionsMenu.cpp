@@ -22,8 +22,13 @@ OptionsMenu::OptionsMenu()
 
 	mvc = new MusicVolumeControl();
 	mvc->setlocation(sf::Vector2i(
-		options->getwidth() / 5 + options->getwidth() / 2 - bt_exit->getcurrentSprite()->getGlobalBounds().width / 2,
-		options->getheight() / 4 + bt_exit->getcurrentSprite()->getGlobalBounds().height / 4));
+		options->getwidth() / 2 + options->getwidth() / 20,
+		options->getheight() / 2 + options->getheight() / 22 ));
+
+	svc = new SoundVolumeControl();
+	svc->setlocation(sf::Vector2i(
+		options->getwidth() / 2 + options->getwidth() / 20,
+		options->getheight() / 2 - options->getheight() / 8));
 }
 
 
@@ -46,7 +51,9 @@ void OptionsMenu::show()
 		gamewindow->add(background->getSprite());
 		gamewindow->add(man->getSprite());
 		gamewindow->add(bt_exit->getcurrentSprite());
+
 		mvc->add(gamewindow);
+		svc->add(gamewindow);
 		
 		if (bt_exit->getcurrentstate() == StateObject::Click)
 			break;

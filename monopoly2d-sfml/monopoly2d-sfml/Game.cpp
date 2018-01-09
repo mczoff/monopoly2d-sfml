@@ -19,9 +19,9 @@ bool Game::open()
 	logoservice = new LogoService();
 	gamemenu = new GameMenu();
 
-
-
 	gamemenu->show();
+
+	Options::getInstance()->saveoptions("config.ini");
 
 	return 0;
 }
