@@ -32,7 +32,7 @@ public:
 
 	void refreshState(sf::Vector2i position);
 	void setState(int i_state);
-	void setPosition(sf::Vector2i i_position);
+	void setposition(sf::Vector2i i_position);
 
 	int getcurrentstate();
 	sf::Sprite* getcurrentSprite();

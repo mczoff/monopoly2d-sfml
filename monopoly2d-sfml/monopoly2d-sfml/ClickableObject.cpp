@@ -92,7 +92,7 @@ sf::Vector2i ClickableObject::getposition()
 	return position;
 }
 
-void ClickableObject::setPosition(sf::Vector2i i_position)
+void ClickableObject::setposition(sf::Vector2i i_position)
 {
 	position = i_position;
 

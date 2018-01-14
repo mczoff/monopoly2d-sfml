@@ -29,6 +29,12 @@ OptionsMenu::OptionsMenu()
 	svc->setlocation(sf::Vector2i(
 		options->getwidth() / 2 + options->getwidth() / 20,
 		options->getheight() / 2 - options->getheight() / 8));
+
+	rc = new ResolutionControl();
+	rc->setlocation(sf::Vector2i(
+		options->getwidth() / 2 + options->getwidth() / 20,
+		options->getheight() / 2 - options->getheight() / 3.5));
+	rc->loadfontFromFile("src/fonts/arial.ttf");
 }
 
 
@@ -52,8 +58,10 @@ void OptionsMenu::show()
 		gamewindow->add(man->getSprite());
 		gamewindow->add(bt_exit->getcurrentSprite());
 
+		rc->add(gamewindow);
 		mvc->add(gamewindow);
 		svc->add(gamewindow);
+	
 		
 		if (bt_exit->getcurrentstate() == StateObject::Click)
 			break;

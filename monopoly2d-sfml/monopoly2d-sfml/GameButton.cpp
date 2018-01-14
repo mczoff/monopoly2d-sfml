@@ -16,5 +16,5 @@ GameButton::~GameButton()
 
 void GameButton::setlocation(sf::Vector2i i_position)
 {
-	ClickableObject::setPosition(i_position);
+	ClickableObject::setposition(i_position);
 }

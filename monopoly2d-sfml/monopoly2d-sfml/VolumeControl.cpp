@@ -27,7 +27,7 @@ void VolumeControl::setlocation(sf::Vector2i i_position)
 	position = i_position;
 }
 
-sf::Vector2i VolumeControl::getlocation()
+sf::Vector2i VolumeControl::getposition()
 {
 	return position;
 }
@@ -63,11 +63,6 @@ void VolumeControl::createState(int mid)
 		else
 			volumestate.push_back(StaticGraphicObject::loadFromFile("src/options/offstepvolume.png"));
 	}
-}
-
-sf::Vector2i VolumeControl::getposition()
-{
-	return position;
 }
 
 ClickableObject*  VolumeControl::getco_down()

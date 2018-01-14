@@ -19,7 +19,16 @@ bool Game::open()
 	logoservice = new LogoService();
 	gamemenu = new GameMenu();
 
+	//logoservice->loadlogo("logo/kt.jpg");
+	//logoservice->showlogo(gamewindow, 0.3, 2);
+	//logoservice->loadlogo("logo/ptf.jpg");
+	//logoservice->showlogo(gamewindow, 0.3, 2);
+	//logoservice->loadlogo("logo/rhorvald.jpg");
+	//logoservice->showlogo(gamewindow, 0.3, 2);
+
 	gamemenu->show();
+	
+
 
 	Options::getInstance()->saveoptions("config.ini");
 

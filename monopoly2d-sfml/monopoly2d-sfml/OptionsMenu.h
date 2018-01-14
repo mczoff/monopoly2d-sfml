@@ -8,10 +8,10 @@
 #include "WindowCommand.h"
 #include "MusicVolumeControl.h"
 #include "SoundVolumeControl.h"
+#include "ResolutionControl.h"
 
 class OptionsMenu
 {
-	//TODO: DYNAMIC REGULATION
 	Options* options;
 	GameWindow* gamewindow;
 	StaticGraphicObject* man;
@@ -20,6 +20,7 @@ class OptionsMenu
 	MusicService* musicservice;
 	MusicVolumeControl* mvc;
 	SoundVolumeControl* svc;
+	ResolutionControl* rc;
 public:
 
 	void show();

@@ -22,13 +22,12 @@ protected:
 
 public:
 
-	sf::Vector2i getposition();
 	ClickableObject* getco_down();
 	ClickableObject* getco_up();
 	int getspacevalue();
 
 	void setlocation(sf::Vector2i i_location);
-	sf::Vector2i getlocation();
+	sf::Vector2i getposition();
 
 	void add(GameWindow* i_gamewindow);
 

@@ -1,6 +1,5 @@
 #include "Logo.h"
 
-//"logo/rhorvald.jpg"
 
 Logo::Logo(char* i_path)
 {

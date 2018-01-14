@@ -9,9 +9,8 @@
 
 class GameButton : public ClickableObject, public SoundableObject
 {
-	//TODO: SHOW CLICK ON BUTTON
-public:
 
+public:
 	void setlocation(sf::Vector2i i_position);
 
 	GameButton(char* i_path_source, char* i_path_hover, char* i_path_pressed);
