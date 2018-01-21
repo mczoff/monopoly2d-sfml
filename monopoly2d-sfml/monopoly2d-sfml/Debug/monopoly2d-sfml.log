@@ -1,3 +1,4 @@
-﻿  Game.cpp
-  monopoly2d-sfml.vcxproj -> C:\Users\McZoff\Documents\GitHub\monopoly2d-sfml\monopoly2d-sfml\Debug\monopoly2d-sfml.exe
-  monopoly2d-sfml.vcxproj -> C:\Users\McZoff\Documents\GitHub\monopoly2d-sfml\monopoly2d-sfml\Debug\monopoly2d-sfml.pdb (Partial PDB)
+﻿  StaticGraphicObject.cpp
+e:\github\monopoly2d-sfml\monopoly2d-sfml\monopoly2d-sfml\staticgraphicobject.cpp(44): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+e:\github\monopoly2d-sfml\monopoly2d-sfml\monopoly2d-sfml\staticgraphicobject.cpp(49): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+  monopoly2d-sfml.vcxproj -> E:\GitHub\monopoly2d-sfml\monopoly2d-sfml\Debug\monopoly2d-sfml.exe

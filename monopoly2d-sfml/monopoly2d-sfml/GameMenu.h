@@ -18,8 +18,8 @@ class GameMenu
 	Background* background;
 	GameWindow* gamewindow;
 
-	WindowCommand* exitcommand;
-	WindowCommand* openoptionscommand;
+	ICommand* exitcommand;
+	ICommand* openoptionscommand;
 
 	GameButton* bt_newGame;
 	GameButton* bt_options;

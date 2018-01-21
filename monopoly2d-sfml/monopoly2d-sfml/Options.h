@@ -12,8 +12,7 @@ class Options
 	sf::Uint32 flagStyleWindow = sf::Style::Titlebar | sf::Style::Close;
 
 	char* nameWindow;
-	int width;
-	int height;
+	sf::VideoMode videomode;
 
 	int musicvolume;
 	int soundvolume;
@@ -30,9 +29,10 @@ public:
 
 	void setsoundvolume(int i_volume);
 	void setmusicvolume(int i_volume);
-	void setwidth(int inner_width);
-	void setheight(int inner_height);
-	void setnameWindow(char* inner_name);
+	void setwidth(int i_width);
+	void setheight(int i_height);
+	void setnameWindow(char* i_name);
+	void setvideomode(sf::VideoMode i_videomode);
 
 	int getStyleFlag();
 

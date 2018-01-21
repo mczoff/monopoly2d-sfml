@@ -1,9 +1,9 @@
 #pragma once
 
-#include "WindowCommand.h"
+#include "ICommand.h"
 #include "OptionsMenu.h"
 
-class OpenOptionsCommand : public WindowCommand 
+class OpenOptionsCommand : public ICommand
 {
 public:
 	OptionsMenu* optionsmenu;

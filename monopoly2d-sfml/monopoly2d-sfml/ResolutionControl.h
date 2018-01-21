@@ -19,6 +19,8 @@ class ResolutionControl
 
 	std::vector<sf::VideoMode> videomodes;
 
+	int numbercurrentresolution();
+	void erasevideomode(int i_lessthan);
 public:
 	ClickableObject* getco_down();
 	ClickableObject* getco_up();
@@ -32,6 +34,7 @@ public:
 	void add(GameWindow* i_gamewindow);
 
 	std::string  gettextresolution(int i);
+	sf::VideoMode getvideomode();
 
 	ResolutionControl();
 	virtual ~ResolutionControl();

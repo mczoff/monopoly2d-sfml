@@ -1,11 +1,10 @@
 #include "Options.h"
 
 
-Options* Options::instance = 0;
+Options* Options::instance = NULL;
 
 Options::Options()
 {
-	
 	loadDefault();
 }
 
@@ -16,18 +15,7 @@ Options::~Options()
 
 void Options::loadDefault()
 {
-	if (flagStyleWindow == sf::Style::Fullscreen)
-	{
-		std::vector<sf::VideoMode> ss = sf::VideoMode::getFullscreenModes();
-
-		setwidth(ss[0].width);
-		setheight(ss[0].height);
-	}
-	else
-	{
-		setwidth(1280);
-		setheight(720);
-	}
+	setvideomode(sf::VideoMode::getDesktopMode());
 	setnameWindow("Monopoly2d");
 	setmusicvolume(100);
 	setsoundvolume(100);
@@ -38,9 +26,10 @@ void Options::saveoptions(char* i_path)
 	std::ofstream fout;
 	fout.open(i_path);
 
-	fout << musicvolume << std::endl;
-	fout << soundvolume << std::endl;
-
+	fout << getmusicvolume() << std::endl;
+	fout << getsoundvolume() << std::endl;
+	fout << getheight() << std::endl;
+	fout << getwidth() << std::endl;
 	fout.close();
 }
 
@@ -48,29 +37,28 @@ void Options::loadoptions(char* i_path)
 {
 	//TODO: CHECK ISEXIST()
 
-	std::ifstream fout(i_path);
-	if (!fout)
-	{
-		loadDefault();
+	std::ifstream fin(i_path);
+	if (!fin)
 		return;
-	}
 
-	fout >> musicvolume;
-	fout >> soundvolume;
+	fin >> musicvolume;
+	fin >> soundvolume;
+	fin >> videomode.height;
+	fin >> videomode.width;
 
-	fout.close();
+	fin.close();
 }
 
 Options* Options::getInstance()
 {
-	if (instance == 0)
+	if (instance == NULL)
 		instance = new Options();
 	return instance;
 }
 
 int Options::getwidth()
 {
-	return width;
+	return videomode.width;
 }
 
 char* Options::getnameWindow()
@@ -81,7 +69,7 @@ char* Options::getnameWindow()
 
 int Options::getheight()
 {
-	return height;
+	return videomode.height;
 }
 
 int Options::getStyleFlag()
@@ -94,19 +82,24 @@ int Options::getmusicvolume()
 	return musicvolume;
 }
 
-void Options::setwidth(int inner_width)
+void Options::setwidth(int i_width)
 {
-	width = inner_width;
+	videomode.width = i_width;
 }
 
-void Options::setheight(int inner_height)
+void Options::setheight(int i_height)
 {
-	height = inner_height;
+	videomode.height = i_height;
 }
 
 void Options::setnameWindow(char* inner_name)
 {
 	nameWindow = inner_name;
+}
+
+void Options::setvideomode(sf::VideoMode i_videomode)
+{
+	videomode = i_videomode;
 }
 
 void Options::setmusicvolume(int i_volume)

@@ -1,6 +1,6 @@
 #include "MusicService.h"
 
-
+MusicService* MusicService::instance = NULL;
 
 MusicService::MusicService()
 {
@@ -57,4 +57,11 @@ bool MusicService::isPlaying()
 float MusicService::getvolume()
 {
 	return music->getVolume();
+}
+
+MusicService* MusicService::getInstance()
+{
+	if (instance == NULL)
+		instance = new MusicService();
+	return instance;
 }

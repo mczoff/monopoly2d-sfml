@@ -12,7 +12,7 @@ class StaticGraphicObject
 protected:
 	StaticGraphicObject(char* i_path);
 public:
-
+	sf::Vector2i getsize();
 	void setSize(sf::Vector2i i_size);
 	void setPosition(sf::Vector2i i_location);
 

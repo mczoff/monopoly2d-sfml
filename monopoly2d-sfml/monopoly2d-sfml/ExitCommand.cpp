@@ -13,5 +13,5 @@ ExitCommand::~ExitCommand()
 
 void ExitCommand::execute()
 {
-	getwindow()->close();
+	GameWindow::getInstance()->getWindow()->close();
 }

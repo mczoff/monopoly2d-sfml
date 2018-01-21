@@ -5,10 +5,10 @@
 #include "MusicService.h"
 #include "GameButton.h"
 #include "GameWindow.h"
-#include "WindowCommand.h"
 #include "MusicVolumeControl.h"
 #include "SoundVolumeControl.h"
 #include "ResolutionControl.h"
+#include "ChangeResolutionCommand.h"
 
 class OptionsMenu
 {
@@ -21,6 +21,7 @@ class OptionsMenu
 	MusicVolumeControl* mvc;
 	SoundVolumeControl* svc;
 	ResolutionControl* rc;
+	ChangeResolutionCommand* crc;
 public:
 
 	void show();

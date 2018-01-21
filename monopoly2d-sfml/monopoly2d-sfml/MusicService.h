@@ -3,10 +3,12 @@
 
 class MusicService
 {
-	//TODO SINGLETONE
+	static MusicService* instance;
+
+
 	sf::Music* music;
 
-
+	MusicService();
 public:
 	//TODO PLAYLIST
 	void play();
@@ -19,7 +21,9 @@ public:
 	void setloop(bool i_value);
 	bool isPlaying();
 
-	MusicService();
+
+	static MusicService* getInstance();
+	
 	virtual ~MusicService();
 };
 

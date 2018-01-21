@@ -6,35 +6,21 @@ OptionsMenu::OptionsMenu()
 {
 	options = Options::getInstance();
 	gamewindow = GameWindow::getInstance();
-	background = Background::loadBackgroundFromFile("src/backgroundmenu.jpg");
+	background = Background::loadBackgroundFromFile("src/backgroundmenu.png");
 
 	bt_exit = new GameButton(
 		"src/menu/sexit.png", "src/menu/hexit.png", "src/menu/pexit.png");
-	bt_exit->setlocation(sf::Vector2i(
-		options->getwidth() / 4 + options->getwidth() / 2 - bt_exit->getcurrentSprite()->getGlobalBounds().width / 2,
-		options->getheight() / 4 + bt_exit->getcurrentSprite()->getGlobalBounds().height / 4 + 300));
-	
+
 	man = StaticGraphicObject::loadFromFile("src/man.png");
 	man->setSize(sf::Vector2i(400, 400));
-	man->setPosition(sf::Vector2i(
-		options->getwidth() / 4 - man->getSprite()->getGlobalBounds().width / 2,
-		options->getheight() / 2 - man->getSprite()->getGlobalBounds().height / 2));
+	
 
 	mvc = new MusicVolumeControl();
-	mvc->setlocation(sf::Vector2i(
-		options->getwidth() / 2 + options->getwidth() / 20,
-		options->getheight() / 2 + options->getheight() / 22 ));
-
 	svc = new SoundVolumeControl();
-	svc->setlocation(sf::Vector2i(
-		options->getwidth() / 2 + options->getwidth() / 20,
-		options->getheight() / 2 - options->getheight() / 8));
+	rc = new ResolutionControl();	
+	rc->loadfontFromFile("src/fonts/phantom.ttf");
 
-	rc = new ResolutionControl();
-	rc->setlocation(sf::Vector2i(
-		options->getwidth() / 2 + options->getwidth() / 20,
-		options->getheight() / 2 - options->getheight() / 3.5));
-	rc->loadfontFromFile("src/fonts/arial.ttf");
+	crc = new ChangeResolutionCommand();
 }
 
 
@@ -43,18 +29,42 @@ OptionsMenu::~OptionsMenu()
 	delete man;
 	delete background;
 	delete bt_exit;
+	delete mvc;
+	delete svc;
+	delete rc;
+	delete crc;
 }
 
 void OptionsMenu::show()
 {
 	while (gamewindow->isOpen())
 	{
+		background->resize();
+
+		man->setPosition(sf::Vector2i(
+			options->getwidth() / 4 - man->getSprite()->getGlobalBounds().width / 2,
+			options->getheight() / 2 - man->getSprite()->getGlobalBounds().height / 2));
+
+		mvc->setlocation(sf::Vector2i(
+			options->getwidth() / 2 + options->getwidth() / 20,
+			options->getheight() / 2 + options->getheight() / 22));
+
+		svc->setlocation(sf::Vector2i(
+			options->getwidth() / 2 + options->getwidth() / 20,
+			options->getheight() / 2 - options->getheight() / 8));
+
+		rc->setlocation(sf::Vector2i(
+			options->getwidth() / 2 + options->getwidth() / 20,
+			options->getheight() / 2 - options->getheight() / 3.5));
+
+		bt_exit->setlocation(sf::Vector2i(
+			options->getwidth() / 4 + options->getwidth() / 2 - bt_exit->getcurrentSprite()->getGlobalBounds().width / 2,
+			options->getheight() / 1.25 - bt_exit->getcurrentSprite()->getGlobalBounds().height / 2));
 
 		bt_exit->refreshState(sf::Mouse::getPosition(*gamewindow->getWindow()));
 		bt_exit->playSound(bt_exit->getcurrentstate());
-
 		
-		gamewindow->add(background->getSprite());
+		gamewindow->add(background->getSizebleSprite());
 		gamewindow->add(man->getSprite());
 		gamewindow->add(bt_exit->getcurrentSprite());
 
@@ -62,14 +72,17 @@ void OptionsMenu::show()
 		mvc->add(gamewindow);
 		svc->add(gamewindow);
 	
-		
-		if (bt_exit->getcurrentstate() == StateObject::Click)
-			break;
-
 		gamewindow->draw();
 		gamewindow->procEvents();
 		gamewindow->render();
 		gamewindow->clear();
-	}
+	
 
+		if (bt_exit->isclick())
+		{
+			Options::getInstance()->setvideomode(rc->getvideomode());
+			crc->execute();
+			break;
+		}
+	}
 }

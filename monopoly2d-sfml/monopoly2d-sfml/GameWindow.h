@@ -26,7 +26,7 @@ public:
 
 	static GameWindow* getInstance();
 	static GameWindow* createInstance(int i_width, int i_height, char* i_name, sf::Uint32 i_style);
-
+	static GameWindow* recreateInstance(int i_width, int i_height, char* i_name, sf::Uint32 i_style);
 	virtual ~GameWindow();
 };
 

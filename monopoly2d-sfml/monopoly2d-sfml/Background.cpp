@@ -4,9 +4,8 @@
 
 Background::Background(char* i_path)
 {
-	Options* options = Options::getInstance();
 	object = StaticGraphicObject::loadFromFile(i_path);
-	object->setSize(sf::Vector2i(options->getwidth(), options->getheight()));
+	resize();
 }
 
 StaticGraphicObject* Background::getobject()
@@ -25,7 +24,15 @@ Background* Background::loadBackgroundFromFile(char* i_path)
 	return tmp;
 }
 
-sf::Sprite* Background::getSprite()
+sf::Sprite* Background::getSizebleSprite()
 {
 	return getobject()->getSprite();
+}
+
+void Background::resize()
+{
+	Options* options = Options::getInstance();
+	if (object->getSprite()->getGlobalBounds().width == options->getwidth() && object->getSprite()->getGlobalBounds().height == options->getheight())
+		return;
+	object->setSize(sf::Vector2i(options->getwidth(), options->getheight()));
 }

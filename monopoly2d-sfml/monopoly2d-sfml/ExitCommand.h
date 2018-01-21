@@ -1,8 +1,9 @@
 #pragma once
 
-#include "WindowCommand.h"
+#include "ICommand.h"
+#include "GameWindow.h"
 
-class ExitCommand : public WindowCommand
+class ExitCommand : public ICommand
 {
 public:
 	void execute();

@@ -1,12 +1,12 @@
 #include "GameWindow.h"
 
-GameWindow* GameWindow::instance = 0;
+GameWindow* GameWindow::instance = NULL;
 
 GameWindow::GameWindow(int i_width, int i_height, char* i_name, sf::Uint32 i_style)
 {
 	window = new sf::RenderWindow(sf::VideoMode(i_width, i_height), i_name, i_style);
+	window->setVerticalSyncEnabled(true);
 }
-
 
 GameWindow::~GameWindow()
 {
@@ -23,8 +23,11 @@ void GameWindow::procEvents()
 	{
 		if (event.type == sf::Event::Closed)
 			window->close();
+      	//	if (event.type == sf::Event::GainedFocus)
+     	//
+	    //	if(event.type == sf::Event::LostFocus)
+		//
 	}
-
 }
 void GameWindow::close()
 {
@@ -68,6 +71,14 @@ GameWindow* GameWindow::getInstance()
 
 GameWindow* GameWindow::createInstance(int i_width, int i_height, char* i_name, sf::Uint32 i_style)
 {
-	instance = new GameWindow(i_width, i_height, i_name, i_style);
+	if (instance == NULL)
+		instance = new GameWindow(i_width, i_height, i_name, i_style);
+	return instance;
+}
+
+GameWindow* GameWindow::recreateInstance(int i_width, int i_height, char* i_name, sf::Uint32 i_style)
+{
+	instance->getWindow()->close();
+	instance->window->create(sf::VideoMode(i_width, i_height), i_name, i_style);
 	return instance;
 }
