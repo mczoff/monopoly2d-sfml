@@ -16,6 +16,7 @@ bool GameWindow::isOpen()
 {
 	return window->isOpen();
 }
+
 void GameWindow::procEvents()
 {
 	sf::Event event;
@@ -23,12 +24,13 @@ void GameWindow::procEvents()
 	{
 		if (event.type == sf::Event::Closed)
 			window->close();
-      	//	if (event.type == sf::Event::GainedFocus)
-     	//
-	    //	if(event.type == sf::Event::LostFocus)
-		//
+		if (event.type == sf::Event::GainedFocus)
+			MusicService::getInstance()->play();
+		if (event.type == sf::Event::LostFocus)
+			MusicService::getInstance()->pause();
 	}
 }
+
 void GameWindow::close()
 {
 	window->close();
@@ -78,7 +80,16 @@ GameWindow* GameWindow::createInstance(int i_width, int i_height, char* i_name, 
 
 GameWindow* GameWindow::recreateInstance(int i_width, int i_height, char* i_name, sf::Uint32 i_style)
 {
+	if (
+		instance->getWindow()->getSize().x == Options::getInstance()->getwidth()
+		&& instance->getWindow()->getSize().y == Options::getInstance()->getheight())
+		return instance;
 	instance->getWindow()->close();
 	instance->window->create(sf::VideoMode(i_width, i_height), i_name, i_style);
 	return instance;
+}
+
+bool GameWindow::hasFocus()
+{
+	return window->hasFocus();
 }

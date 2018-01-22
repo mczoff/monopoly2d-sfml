@@ -48,6 +48,9 @@ sf::Sprite* ClickableObject::getpressed_sprite()
 
 void ClickableObject::refreshState(sf::Vector2i i_mouseposition)
 {
+	if (!GameWindow::getInstance()->hasFocus())
+		return;
+
 	if (
 		   i_mouseposition.x > position.x
 		&& i_mouseposition.x < position.x + getcurrentSprite()->getLocalBounds().width
@@ -103,6 +106,7 @@ void ClickableObject::setposition(sf::Vector2i i_position)
 
 void ClickableObject::doisclick(ICommand* i_command)
 {
+
 	if (getcurrentstate() == StateObject::Hover && laststate == StateObject::Click)
 		i_command->execute();
 	laststate = state;

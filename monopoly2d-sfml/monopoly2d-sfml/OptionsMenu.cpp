@@ -8,8 +8,8 @@ OptionsMenu::OptionsMenu()
 	gamewindow = GameWindow::getInstance();
 	background = Background::loadBackgroundFromFile("src/backgroundmenu.png");
 
-	bt_exit = new GameButton(
-		"src/menu/sexit.png", "src/menu/hexit.png", "src/menu/pexit.png");
+	bt_back = new GameButton(
+		"src/options/sback.png", "src/options/hback.png", "src/options/pback.png");
 
 	man = StaticGraphicObject::loadFromFile("src/man.png");
 	man->setSize(sf::Vector2i(400, 400));
@@ -28,7 +28,7 @@ OptionsMenu::~OptionsMenu()
 {
 	delete man;
 	delete background;
-	delete bt_exit;
+	delete bt_back;
 	delete mvc;
 	delete svc;
 	delete rc;
@@ -57,16 +57,16 @@ void OptionsMenu::show()
 			options->getwidth() / 2 + options->getwidth() / 20,
 			options->getheight() / 2 - options->getheight() / 3.5));
 
-		bt_exit->setlocation(sf::Vector2i(
-			options->getwidth() / 4 + options->getwidth() / 2 - bt_exit->getcurrentSprite()->getGlobalBounds().width / 2,
-			options->getheight() / 1.25 - bt_exit->getcurrentSprite()->getGlobalBounds().height / 2));
+		bt_back->setlocation(sf::Vector2i(
+			options->getwidth() / 4 + options->getwidth() / 2 - bt_back->getcurrentSprite()->getGlobalBounds().width / 2,
+			options->getheight() / 1.25 - bt_back->getcurrentSprite()->getGlobalBounds().height / 2));
 
-		bt_exit->refreshState(sf::Mouse::getPosition(*gamewindow->getWindow()));
-		bt_exit->playSound(bt_exit->getcurrentstate());
+		bt_back->refreshState(sf::Mouse::getPosition(*gamewindow->getWindow()));
+		bt_back->playSound(bt_back->getcurrentstate());
 		
 		gamewindow->add(background->getSizebleSprite());
 		gamewindow->add(man->getSprite());
-		gamewindow->add(bt_exit->getcurrentSprite());
+		gamewindow->add(bt_back->getcurrentSprite());
 
 		rc->add(gamewindow);
 		mvc->add(gamewindow);
@@ -78,7 +78,7 @@ void OptionsMenu::show()
 		gamewindow->clear();
 	
 
-		if (bt_exit->isclick())
+		if (bt_back->isclick())
 		{
 			Options::getInstance()->setvideomode(rc->getvideomode());
 			crc->execute();

@@ -2,7 +2,7 @@
 
 #include "SFML\Audio.hpp"
 #include "Options.h"
-
+#include "GameWindow.h"
 #include "StateObject.h"
 
 class SoundableObject

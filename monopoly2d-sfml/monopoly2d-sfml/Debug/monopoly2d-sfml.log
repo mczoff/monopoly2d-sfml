@@ -1,4 +1,9 @@
-﻿  StaticGraphicObject.cpp
-e:\github\monopoly2d-sfml\monopoly2d-sfml\monopoly2d-sfml\staticgraphicobject.cpp(44): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-e:\github\monopoly2d-sfml\monopoly2d-sfml\monopoly2d-sfml\staticgraphicobject.cpp(49): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+﻿  GameMenu.cpp
+e:\github\monopoly2d-sfml\monopoly2d-sfml\monopoly2d-sfml\gamemenu.cpp(47): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+e:\github\monopoly2d-sfml\monopoly2d-sfml\monopoly2d-sfml\gamemenu.cpp(53): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+e:\github\monopoly2d-sfml\monopoly2d-sfml\monopoly2d-sfml\gamemenu.cpp(54): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+e:\github\monopoly2d-sfml\monopoly2d-sfml\monopoly2d-sfml\gamemenu.cpp(55): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+e:\github\monopoly2d-sfml\monopoly2d-sfml\monopoly2d-sfml\gamemenu.cpp(59): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+e:\github\monopoly2d-sfml\monopoly2d-sfml\monopoly2d-sfml\gamemenu.cpp(58): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+e:\github\monopoly2d-sfml\monopoly2d-sfml\monopoly2d-sfml\gamemenu.cpp(64): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
   monopoly2d-sfml.vcxproj -> E:\GitHub\monopoly2d-sfml\monopoly2d-sfml\Debug\monopoly2d-sfml.exe

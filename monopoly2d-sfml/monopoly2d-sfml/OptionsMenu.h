@@ -16,7 +16,7 @@ class OptionsMenu
 	GameWindow* gamewindow;
 	StaticGraphicObject* man;
 	Background* background;
-	GameButton* bt_exit;
+	GameButton* bt_back;
 	MusicService* musicservice;
 	MusicVolumeControl* mvc;
 	SoundVolumeControl* svc;

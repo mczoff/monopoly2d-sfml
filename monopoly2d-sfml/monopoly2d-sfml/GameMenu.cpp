@@ -55,7 +55,7 @@ void GameMenu::show()
 		bt_exit->setlocation(sf::Vector2i(options->getwidth() / 12, options->getheight() / 1.5 - bt_exit->getcurrentSprite()->getGlobalBounds().height / 2));
 
 		man->setPosition(sf::Vector2i(
-			options->getwidth() / 4 + options->getwidth() / 2 - man->getSprite()->getGlobalBounds().width / 2,
+			options->getwidth() / 4 + options->getwidth() / 2 - man->getSprite()->getGlobalBounds().width / 4,
 			options->getheight() / 2 - man->getSprite()->getGlobalBounds().height / 2));
 
 		//MAYBE: DO EASIER

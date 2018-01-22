@@ -66,6 +66,11 @@ char* Options::getnameWindow()
 	return nameWindow;
 }
 
+bool Options::getismute()
+{
+	return ismute;
+}
+
 
 int Options::getheight()
 {
@@ -79,6 +84,8 @@ int Options::getStyleFlag()
 
 int Options::getmusicvolume()
 {
+	if (ismute)
+		return 0;
 	return musicvolume;
 }
 
@@ -109,8 +116,15 @@ void Options::setmusicvolume(int i_volume)
 	musicvolume = i_volume;
 }
 
+void Options::setismute(bool i_ismute)
+{
+	ismute = i_ismute;
+}
+
 int Options::getsoundvolume()
 {
+	if (ismute)
+		return 0;
 	return soundvolume;
 }
 

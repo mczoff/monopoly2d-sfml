@@ -1,7 +1,8 @@
 #pragma once
 
 #include "SFML\Graphics.hpp"
-
+#include "MusicService.h"
+#include "Options.h"
 #include <vector>
 
 class GameWindow
@@ -16,7 +17,7 @@ public:
 	bool isOpen();
 	void procEvents();
 	void close();
-
+	bool hasFocus();
 	void draw();
 	void render();
 	void clear();

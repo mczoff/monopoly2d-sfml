@@ -7,6 +7,8 @@
 
 class Options
 {
+	bool ismute;
+
 	static Options* instance;
 
 	sf::Uint32 flagStyleWindow = sf::Style::Titlebar | sf::Style::Close;
@@ -26,6 +28,7 @@ public:
 	int getwidth();
 	int getheight();
 	char* getnameWindow();
+	bool getismute();
 
 	void setsoundvolume(int i_volume);
 	void setmusicvolume(int i_volume);
@@ -33,6 +36,7 @@ public:
 	void setheight(int i_height);
 	void setnameWindow(char* i_name);
 	void setvideomode(sf::VideoMode i_videomode);
+	void setismute(bool i_ismute);
 
 	int getStyleFlag();
 
