@@ -11,9 +11,9 @@ GameMenu::GameMenu()
 	options = Options::getInstance();
 
 	//TODO: resize button constant
-	bt_newGame = new GameButton("src/menu/snewgame.png", "src/menu/hnewgame.png", "src/menu/pnewgame.png");
-	bt_options = new GameButton("src/menu/soptions.png", "src/menu/hoptions.png", "src/menu/poptions.png");
-	bt_exit = new GameButton("src/menu/sexit.png", "src/menu/hexit.png", "src/menu/pexit.png");
+	bt_newGame = new GameButton("src/buttons/sgame.png", "src/buttons/hgame.png", "src/buttons/pgame.png");
+	bt_options = new GameButton("src/buttons/soptions.png", "src/buttons/hoptions.png", "src/buttons/poptions.png");
+	bt_exit = new GameButton("src/buttons/sexit.png", "src/buttons/hexit.png", "src/buttons/pexit.png");
 
 	bt_newGame->sethoversound("src/sounds/cmenu.wav");
 	bt_options->sethoversound("src/sounds/cmenu.wav");

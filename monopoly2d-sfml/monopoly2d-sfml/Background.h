@@ -6,14 +6,12 @@
 
 class Background
 {
-	
-
 	StaticGraphicObject* object;
 
 	Background(char* i_path);
 
 	StaticGraphicObject* getobject();
-	
+
 public:
 	
 	void resize();

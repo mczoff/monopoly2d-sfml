@@ -9,7 +9,7 @@ OptionsMenu::OptionsMenu()
 	background = Background::loadBackgroundFromFile("src/backgroundmenu.png");
 
 	bt_back = new GameButton(
-		"src/options/sback.png", "src/options/hback.png", "src/options/pback.png");
+		"src/buttons/sback.png", "src/buttons/hback.png", "src/buttons/pback.png");
 	bt_back->sethoversound("src/sounds/cmenu.wav");
 
 	man = StaticGraphicObject::loadFromFile("src/man.png");
