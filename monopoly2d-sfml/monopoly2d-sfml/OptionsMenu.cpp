@@ -10,6 +10,7 @@ OptionsMenu::OptionsMenu()
 
 	bt_back = new GameButton(
 		"src/options/sback.png", "src/options/hback.png", "src/options/pback.png");
+	bt_back->sethoversound("src/sounds/cmenu.wav");
 
 	man = StaticGraphicObject::loadFromFile("src/man.png");
 	man->setSize(sf::Vector2i(400, 400));

@@ -8,10 +8,15 @@
 #include "ExitCommand.h"
 #include "StateObject.h"
 #include "StaticGraphicObject.h"
-#include "OpenOptionsCommand.h"
+#include "ShowCommand.h"
+#include "OptionsMenu.h"
+#include "GameCreatorMenu.h"
 
-class GameMenu
+class GameMenu : public IShowable
 {
+	OptionsMenu* optionsmenu;
+	GameCreatorMenu* gamecreatormenu;
+
 	StaticGraphicObject* man;
 
 	Options* options;
@@ -19,7 +24,8 @@ class GameMenu
 	GameWindow* gamewindow;
 
 	ICommand* exitcommand;
-	ICommand* openoptionscommand;
+	ICommand* showoptionscommand;
+	ICommand* showgamecreatormenucommand;
 
 	GameButton* bt_newGame;
 	GameButton* bt_options;

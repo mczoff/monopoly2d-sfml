@@ -23,9 +23,12 @@ GameMenu::GameMenu()
 	man = StaticGraphicObject::loadFromFile("src/man.png");
 	man->setSize(sf::Vector2i(400, 400));
 
+	optionsmenu = new OptionsMenu();
+	gamecreatormenu = new GameCreatorMenu();
 
 	exitcommand = new ExitCommand();
-	openoptionscommand = new OpenOptionsCommand();
+	showoptionscommand = new ShowCommand(optionsmenu);
+	showgamecreatormenucommand = new ShowCommand(gamecreatormenu);
 
 	musicservice = MusicService::getInstance();
 }
@@ -38,7 +41,9 @@ GameMenu::~GameMenu()
 	delete bt_options;
 	delete bt_exit;
 	delete exitcommand;
-	delete openoptionscommand;
+	delete exitcommand;
+	delete showoptionscommand;
+	delete showgamecreatormenucommand;
 }
 
 void GameMenu::show()
@@ -85,7 +90,8 @@ void GameMenu::show()
 		gamewindow->clear();
 
 		bt_exit->doisclick(exitcommand);
-		bt_options->doisclick(openoptionscommand);
+		bt_options->doisclick(showoptionscommand);
+		bt_newGame->doisclick(showgamecreatormenucommand);
 
 		background->resize();
 	}

@@ -9,8 +9,9 @@
 #include "SoundVolumeControl.h"
 #include "ResolutionControl.h"
 #include "ChangeResolutionCommand.h"
+#include "IShowable.h"
 
-class OptionsMenu
+class OptionsMenu : public IShowable
 {
 	Options* options;
 	GameWindow* gamewindow;
