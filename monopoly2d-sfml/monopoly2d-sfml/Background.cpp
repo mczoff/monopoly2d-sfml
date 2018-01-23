@@ -26,6 +26,7 @@ Background* Background::loadBackgroundFromFile(char* i_path)
 
 sf::Sprite* Background::getSizebleSprite()
 {
+	resize();
 	return getobject()->getSprite();
 }
 

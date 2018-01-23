@@ -17,7 +17,7 @@ class SoundableObject
 public:
 	void sethoversound(char* i_path);
 	void setclicksound(char* i_path);
-	void playSound(int state);
+	void playsound(int state);
 
 	SoundableObject();
 	virtual ~SoundableObject();

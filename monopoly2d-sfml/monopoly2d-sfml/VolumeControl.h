@@ -1,18 +1,21 @@
 #pragma once
 
-#include "ClickableObject.h"
+#include "GameButton.h"
 #include "StaticGraphicObject.h"
 #include "SFML\Graphics.hpp"
 #include "GameWindow.h"
+#include "IDrawableControl.h"
 
-class VolumeControl
+class VolumeControl : public IDrawableControl
 {
 private:
 	const int spacevalue = 30;
 
 	sf::Vector2i position;
-	ClickableObject* co_down;
-	ClickableObject* co_up;
+
+	GameButton* bt_down;
+	GameButton* bt_up;
+
 	std::vector<StaticGraphicObject*> volumestate;
 
 protected:
@@ -22,14 +25,15 @@ protected:
 
 public:
 
-	ClickableObject* getco_down();
-	ClickableObject* getco_up();
+	ClickableObject* getbt_down();
+	ClickableObject* getbt_up();
 	int getspacevalue();
 
 	void setlocation(sf::Vector2i i_location);
 	sf::Vector2i getposition();
 
 	void add(GameWindow* i_gamewindow);
+	void playbuttonssound();
 
 	VolumeControl();
 	virtual ~VolumeControl();

@@ -16,7 +16,7 @@ SoundableObject::~SoundableObject()
 {
 }
 
-void SoundableObject::playSound(int i_state)
+void SoundableObject::playsound(int i_state)
 {
 	click_sound->setVolume(Options::getInstance()->getsoundvolume());
 	hover_sound->setVolume(Options::getInstance()->getsoundvolume());

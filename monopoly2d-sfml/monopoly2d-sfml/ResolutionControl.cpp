@@ -4,17 +4,11 @@
 
 ResolutionControl::ResolutionControl()
 {
-	co_down = new ClickableObject();
+	bt_down = new GameButton("src/buttons/sdown.png", "src/buttons/hdown.png", "src/buttons/pdown.png");
+	bt_up = new GameButton("src/buttons/sup.png", "src/buttons/hup.png", "src/buttons/pup.png");
 
-	co_down->loadsource_imageFromFile("src/options/click_volume_down.png");
-	co_down->loadhover_imageFromFile("src/options/hover_volume_down.png");
-	co_down->loadpressed_imageFromFile("src/options/pressed_volume_down.png");
-
-	co_up = new ClickableObject();
-
-	co_up->loadsource_imageFromFile("src/options/click_volume_up.png");
-	co_up->loadhover_imageFromFile("src/options/hover_volume_up.png");
-	co_up->loadpressed_imageFromFile("src/options/pressed_volume_up.png");
+	bt_down->sethoversound("src/sounds/hbuttons.wav");
+	bt_up->sethoversound("src/sounds/hbuttons.wav");
 
 	videomodes = sf::VideoMode::getFullscreenModes();
 	
@@ -23,6 +17,7 @@ ResolutionControl::ResolutionControl()
 	number = numbercurrentresolution();
 
 	text = new sf::Text();
+
 }
 
 void ResolutionControl::erasevideomode(int i_lessthan)
@@ -39,8 +34,8 @@ void ResolutionControl::erasevideomode(int i_lessthan)
 
 ResolutionControl::~ResolutionControl()
 {
-	delete co_down;
-	delete co_up;
+	delete bt_down;
+	delete bt_up;
 	delete text;
 }
 
@@ -56,6 +51,7 @@ sf::Vector2i ResolutionControl::getlocation()
 
 void ResolutionControl::add(GameWindow* i_gamewindow)
 {
+	//TODO: COLOR
 	refreshtext(gettextresolution(number % videomodes.size()),sf::Color::Black);
 	
 	getco_down()->setposition(position);
@@ -84,13 +80,12 @@ void ResolutionControl::add(GameWindow* i_gamewindow)
 
 ClickableObject*  ResolutionControl::getco_down()
 {
-	return co_down;
+	return bt_down;
 }
 
 ClickableObject*  ResolutionControl::getco_up()
 {
-	return co_up;
-
+	return bt_up;
 }
 
 sf::Font ResolutionControl::getfont()
@@ -143,4 +138,10 @@ int ResolutionControl::numbercurrentresolution()
 sf::VideoMode ResolutionControl::getvideomode()
 {
 	return videomodes.at(number % videomodes.size());
+}
+
+void ResolutionControl::playbuttonssound()
+{
+	bt_down->playsound(bt_down->getcurrentstate());
+	bt_up->playsound(bt_up->getcurrentstate());
 }

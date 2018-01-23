@@ -10,12 +10,12 @@
 #include "StaticGraphicObject.h"
 #include "ShowCommand.h"
 #include "OptionsMenu.h"
-#include "GameCreatorMenu.h"
+#include "GameSelectMenu.h"
 
 class GameMenu : public IShowable
 {
 	OptionsMenu* optionsmenu;
-	GameCreatorMenu* gamecreatormenu;
+	GameSelectMenu* gameselectmenu;
 
 	StaticGraphicObject* man;
 
@@ -27,7 +27,7 @@ class GameMenu : public IShowable
 	ICommand* showoptionscommand;
 	ICommand* showgamecreatormenucommand;
 
-	GameButton* bt_newGame;
+	GameButton* bt_game;
 	GameButton* bt_options;
 	GameButton* bt_exit;
 

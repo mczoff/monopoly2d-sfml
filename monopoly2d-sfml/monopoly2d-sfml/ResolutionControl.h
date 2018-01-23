@@ -4,6 +4,8 @@
 #include "StaticGraphicObject.h"
 #include "SFML\Graphics.hpp"
 #include "GameWindow.h"
+#include "GameButton.h"
+
 #include <vector>
 
 class ResolutionControl
@@ -14,8 +16,8 @@ class ResolutionControl
 	sf::Font font;
 	sf::Vector2i position;
 
-	ClickableObject* co_down;
-	ClickableObject* co_up;
+	GameButton* bt_down;
+	GameButton* bt_up;
 
 	std::vector<sf::VideoMode> videomodes;
 
@@ -32,8 +34,9 @@ public:
 	void setlocation(sf::Vector2i i_location);
 	sf::Vector2i getlocation();
 	void add(GameWindow* i_gamewindow);
+	void playbuttonssound();
 
-	std::string  gettextresolution(int i);
+	std::string gettextresolution(int i);
 	sf::VideoMode getvideomode();
 
 	ResolutionControl();

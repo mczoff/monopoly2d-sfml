@@ -8,9 +8,8 @@ OptionsMenu::OptionsMenu()
 	gamewindow = GameWindow::getInstance();
 	background = Background::loadBackgroundFromFile("src/backgroundmenu.png");
 
-	bt_back = new GameButton(
-		"src/buttons/sback.png", "src/buttons/hback.png", "src/buttons/pback.png");
-	bt_back->sethoversound("src/sounds/cmenu.wav");
+	bt_back = new GameButton("src/buttons/sback.png", "src/buttons/hback.png", "src/buttons/pback.png");
+	bt_back->sethoversound("src/sounds/hbuttons.wav");
 
 	man = StaticGraphicObject::loadFromFile("src/man.png");
 	man->setSize(sf::Vector2i(400, 400));
@@ -40,8 +39,6 @@ void OptionsMenu::show()
 {
 	while (gamewindow->isOpen())
 	{
-		background->resize();
-
 		man->setPosition(sf::Vector2i(
 			options->getwidth() / 4 - man->getSprite()->getGlobalBounds().width / 2,
 			options->getheight() / 2 - man->getSprite()->getGlobalBounds().height / 2));
@@ -63,8 +60,8 @@ void OptionsMenu::show()
 			options->getheight() / 1.25 - bt_back->getcurrentSprite()->getGlobalBounds().height / 2));
 
 		bt_back->refreshState(sf::Mouse::getPosition(*gamewindow->getWindow()));
-		bt_back->playSound(bt_back->getcurrentstate());
-		
+		bt_back->playsound(bt_back->getcurrentstate());
+
 		gamewindow->add(background->getSizebleSprite());
 		gamewindow->add(man->getSprite());
 		gamewindow->add(bt_back->getcurrentSprite());
@@ -73,6 +70,11 @@ void OptionsMenu::show()
 		mvc->add(gamewindow);
 		svc->add(gamewindow);
 	
+		rc->playbuttonssound();
+		mvc->playbuttonssound();
+		svc->playbuttonssound();
+
+
 		gamewindow->draw();
 		gamewindow->procEvents();
 		gamewindow->render();
