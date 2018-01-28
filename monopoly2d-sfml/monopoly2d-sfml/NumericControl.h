@@ -8,6 +8,8 @@
 
 class NumericControl : public IDrawableControl
 {
+	bool flagclick;
+
 	int value;
 
 	int max;
@@ -22,7 +24,7 @@ class NumericControl : public IDrawableControl
 	GameButton* bt_up;
 
 public:
-
+	bool isclick();
 	sf::Font getfont();
 	void setlocation(sf::Vector2i i_position);
 	sf::Vector2i getlocation();

@@ -10,7 +10,7 @@
 //LIST TODO
 // TODO: getco_down()->refreshState(sf::Mouse::getPosition(*GameWindow::getInstance()->getWindow())); ->  getco_down()->refreshState();
 // TODO: NUMBERS FONTS FOR NUMERIC AND RESOLUTION CONTROLS
-//
+// TODO: IClickabel with doisclick and isclick()
 //
 //
 

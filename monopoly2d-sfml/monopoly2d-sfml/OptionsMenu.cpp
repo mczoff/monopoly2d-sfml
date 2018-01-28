@@ -11,9 +11,11 @@ OptionsMenu::OptionsMenu()
 	bt_back = new GameButton("src/buttons/sback.png", "src/buttons/hback.png", "src/buttons/pback.png");
 	bt_back->sethoversound("src/sounds/hbuttons.wav");
 
-	man = StaticGraphicObject::loadFromFile("src/man.png");
-	man->setSize(sf::Vector2i(400, 400));
+	man = StaticGraphicObject::loadFromFile("src/man2.png");
+	man->setSize(sf::Vector2i(500, 400));
 	
+	mvclogo = StaticGraphicObject::loadFromFile("src/spritelogomusic.png");
+	svclogo = StaticGraphicObject::loadFromFile("src/spritelogosound.png");
 
 	mvc = new MusicVolumeControl();
 	svc = new SoundVolumeControl();
@@ -39,7 +41,7 @@ void OptionsMenu::show()
 {
 	while (gamewindow->isOpen())
 	{
-		man->setPosition(sf::Vector2i(
+		man->setlocation(sf::Vector2i(
 			options->getwidth() / 4 - man->getSprite()->getGlobalBounds().width / 2,
 			options->getheight() / 2 - man->getSprite()->getGlobalBounds().height / 2));
 
@@ -47,8 +49,16 @@ void OptionsMenu::show()
 			options->getwidth() / 2 + options->getwidth() / 20,
 			options->getheight() / 2 + options->getheight() / 22));
 
+		mvclogo->setlocation(sf::Vector2i(
+			options->getwidth() / 2 + options->getwidth() / 20 - mvclogo->getSprite()->getGlobalBounds().width,
+			options->getheight() / 2 + options->getheight() / 22));
+
 		svc->setlocation(sf::Vector2i(
 			options->getwidth() / 2 + options->getwidth() / 20,
+			options->getheight() / 2 - options->getheight() / 8));
+
+		svclogo->setlocation(sf::Vector2i(
+			options->getwidth() / 2 + options->getwidth() / 20 - svclogo->getSprite()->getGlobalBounds().width,
 			options->getheight() / 2 - options->getheight() / 8));
 
 		rc->setlocation(sf::Vector2i(
@@ -65,11 +75,15 @@ void OptionsMenu::show()
 		gamewindow->add(background->getSizebleSprite());
 		gamewindow->add(man->getSprite());
 		gamewindow->add(bt_back->getcurrentSprite());
+		gamewindow->add(mvclogo->getSprite());
+		gamewindow->add(svclogo->getSprite());
+
 
 		rc->add(gamewindow);
 		mvc->add(gamewindow);
 		svc->add(gamewindow);
-	
+
+
 		rc->playbuttonssound();
 		mvc->playbuttonssound();
 		svc->playbuttonssound();

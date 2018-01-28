@@ -14,7 +14,7 @@ protected:
 public:
 	sf::Vector2i getsize();
 	void setSize(sf::Vector2i i_size);
-	void setPosition(sf::Vector2i i_location);
+	void setlocation(sf::Vector2i i_location);
 
 	sf::Sprite* getSprite();
 	static StaticGraphicObject* loadFromFile(char* i_path);

@@ -13,7 +13,6 @@ NumericControl::NumericControl()
 	text = new sf::Text();
 	text->setCharacterSize(48);
 	
-
 	setvalue(0);
 	setmin(0);
 	setmax(255);
@@ -59,6 +58,11 @@ void NumericControl::setmax(int i_max)
 void NumericControl::setvalue(int i_value)
 {
 	value = i_value;
+}
+
+bool NumericControl::isclick()
+{
+	return flagclick;
 }
 
 sf::Font NumericControl::getfont()
@@ -108,7 +112,7 @@ void NumericControl::settextposition(sf::Vector2i i_position)
 
 void NumericControl::add(GameWindow* i_gamewindow)
 {
-	//TODO: COLOR
+	flagclick = false;
 	refreshtext(sf::Color::Black);
 
 	getco_down()->setposition(position);
@@ -119,12 +123,19 @@ void NumericControl::add(GameWindow* i_gamewindow)
 	
 	getco_up()->refreshState(sf::Mouse::getPosition(*GameWindow::getInstance()->getWindow()));
 	if (getco_up()->isclick())
+	{
+		flagclick = true;
 		incvalue();
+	}
+		
 
 	getco_down()->refreshState(sf::Mouse::getPosition(*GameWindow::getInstance()->getWindow()));
 	if (getco_down()->isclick())
+	{
+		flagclick = true;
 		decvalue();
-
+	}
+		
 	i_gamewindow->add(text);
 	i_gamewindow->add(getco_up()->getcurrentSprite());
 	i_gamewindow->add(getco_down()->getcurrentSprite());

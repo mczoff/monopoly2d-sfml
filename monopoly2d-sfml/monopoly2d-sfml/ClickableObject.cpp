@@ -99,9 +99,9 @@ void ClickableObject::setposition(sf::Vector2i i_position)
 {
 	position = i_position;
 
-	source->setPosition(i_position);
-	hover->setPosition(i_position);
-	pressed->setPosition(i_position);
+	source->setlocation(i_position);
+	hover->setlocation(i_position);
+	pressed->setlocation(i_position);
 }
 
 void ClickableObject::doisclick(ICommand* i_command)

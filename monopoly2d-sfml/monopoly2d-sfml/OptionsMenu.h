@@ -20,9 +20,13 @@ class OptionsMenu : public IShowable
 	GameButton* bt_back;
 	MusicService* musicservice;
 	MusicVolumeControl* mvc;
+	StaticGraphicObject* mvclogo;
 	SoundVolumeControl* svc;
+	StaticGraphicObject* svclogo;
 	ResolutionControl* rc;
 	ChangeResolutionCommand* crc;
+
+
 public:
 
 	void show();

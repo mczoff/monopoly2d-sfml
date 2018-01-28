@@ -21,7 +21,7 @@ void VolumeControl::setlocation(sf::Vector2i i_position)
 	position = i_position;
 }
 
-sf::Vector2i VolumeControl::getposition()
+sf::Vector2i VolumeControl::getlocation()
 {
 	return position;
 }
@@ -35,7 +35,7 @@ void VolumeControl::add(GameWindow* i_gamewindow)
 	
 	for (int i = 0; i < volumestate.size(); i++)
 	{
-		volumestate.at(i)->setPosition(sf::Vector2i(position.x + (spacevalue * i) + bt_down->getcurrentSprite()->getGlobalBounds().width, position.y));
+		volumestate.at(i)->setlocation(sf::Vector2i(position.x + (spacevalue * i) + bt_down->getcurrentSprite()->getGlobalBounds().width, position.y));
 		i_gamewindow->add(volumestate.at(i)->getSprite());
 	}
 }

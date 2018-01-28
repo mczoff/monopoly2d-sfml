@@ -41,8 +41,8 @@ void GameSelectMenu::show()
 {
 	while (gamewindow->isOpen())
 	{
-		ogirl->setPosition(sf::Vector2i(options->getwidth() / 7 - ogirl->getSprite()->getGlobalBounds().width / 2, options->getheight() / 2 - ogirl->getSprite()->getGlobalBounds().height / 2));
-		oman->setPosition(sf::Vector2i(options->getwidth() / 1.15 - oman->getSprite()->getGlobalBounds().width / 2, options->getheight() / 2 - oman->getSprite()->getGlobalBounds().height / 2));
+		ogirl->setlocation(sf::Vector2i(options->getwidth() / 7 - ogirl->getSprite()->getGlobalBounds().width / 2, options->getheight() / 2 - ogirl->getSprite()->getGlobalBounds().height / 2));
+		oman->setlocation(sf::Vector2i(options->getwidth() / 1.15 - oman->getSprite()->getGlobalBounds().width / 2, options->getheight() / 2 - oman->getSprite()->getGlobalBounds().height / 2));
 
 		bt_newgame->setlocation(sf::Vector2i(options->getwidth() / 2 - bt_newgame->getcurrentSprite()->getGlobalBounds().width / 2, options->getheight() / 3 - bt_newgame->getcurrentSprite()->getGlobalBounds().height / 2));
 		bt_continuegame->setlocation(sf::Vector2i(options->getwidth() / 2 - bt_continuegame->getcurrentSprite()->getGlobalBounds().width / 2, options->getheight() / 2 - bt_continuegame->getcurrentSprite()->getGlobalBounds().height / 2));

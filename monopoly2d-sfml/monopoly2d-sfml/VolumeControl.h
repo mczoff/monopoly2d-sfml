@@ -30,7 +30,7 @@ public:
 	int getspacevalue();
 
 	void setlocation(sf::Vector2i i_location);
-	sf::Vector2i getposition();
+	sf::Vector2i getlocation();
 
 	void add(GameWindow* i_gamewindow);
 	void playbuttonssound();

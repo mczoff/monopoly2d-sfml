@@ -5,7 +5,7 @@ GameWindow* GameWindow::instance = NULL;
 GameWindow::GameWindow(int i_width, int i_height, char* i_name, sf::Uint32 i_style)
 {
 	window = new sf::RenderWindow(sf::VideoMode(i_width, i_height), i_name, i_style);
-	window->setVerticalSyncEnabled(true);
+	window->setFramerateLimit(60);
 }
 
 GameWindow::~GameWindow()
