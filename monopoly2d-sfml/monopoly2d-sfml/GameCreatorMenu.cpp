@@ -5,7 +5,7 @@
 GameCreatorMenu::GameCreatorMenu()
 {
 	
-	background = Background::loadBackgroundFromFile("src/backgroundmenu.png");
+	background = Background::loadFromFile("src/backgroundmenu.png");
 
 	bt_back = new GameButton("src/buttons/sback.png", "src/buttons/hback.png", "src/buttons/pback.png");
 	bt_back->sethoversound("src/sounds/hbuttons.wav");
@@ -21,13 +21,13 @@ GameCreatorMenu::GameCreatorMenu()
 	man4->setSize(sf::Vector2i(300, 300));
 
 	nc_players = new NumericControl();
-	nc_players->setmax(5);
+	nc_players->setmax(9);
 	nc_players->setmin(1);
 	nc_players->setvalue(1);
 	nc_players->loadfontFromFile("src/fonts/phantom.ttf");
 
 	nc_bots = new NumericControl();
-	nc_bots->setmax(4);
+	nc_bots->setmax(8);
 	nc_bots->setmin(0);
 	nc_bots->setvalue(3);
 	nc_bots->loadfontFromFile("src/fonts/phantom.ttf");
@@ -52,39 +52,39 @@ void GameCreatorMenu::show()
 	while (gamewindow->isOpen())
 	{
 		bt_create->setlocation(sf::Vector2i(
-			options->getwidth() / 4 - bt_create->getcurrentSprite()->getGlobalBounds().width / 2,
-			options->getheight() / 3 - bt_create->getcurrentSprite()->getGlobalBounds().height / 2));
+			int(options->getwidth() / 4 - bt_create->getcurrentSprite()->getGlobalBounds().width / 2),
+			int(options->getheight() / 3 - bt_create->getcurrentSprite()->getGlobalBounds().height / 2)));
 		
 		bt_back->setlocation(sf::Vector2i(
-			options->getwidth() / 4 - bt_back->getcurrentSprite()->getGlobalBounds().width / 2,
-			options->getheight() / 2.25));
+			int(options->getwidth() / 4 - bt_back->getcurrentSprite()->getGlobalBounds().width / 2),
+			int(options->getheight() / 2.25)));
 		
 		cntplayers->setlocation(sf::Vector2i(
-			options->getwidth() / 2 - options->getwidth() / 16,
-			options->getheight() / 2.5));
+			int(options->getwidth() / 2 - options->getwidth() / 16),
+			int(options->getheight() / 2.5)));
 
 		nc_players->setlocation(sf::Vector2i(
-			options->getwidth() / 2 + options->getwidth() / 4,
-			options->getheight() / 2.5));
+			int(options->getwidth() / 2 + options->getwidth() / 4),
+			int(options->getheight() / 2.5)));
 
 		cntbots->setlocation(sf::Vector2i(
-			options->getwidth() / 2 - options->getwidth() / 16,
-			options->getheight() / 1.4));
+			int(options->getwidth() / 2 - options->getwidth() / 16),
+			int(options->getheight() / 1.4)));
 
 		nc_bots->setlocation(sf::Vector2i(
-			options->getwidth() / 2 + options->getwidth() / 4,
-			options->getheight() / 1.4));
+			int(options->getwidth() / 2 + options->getwidth() / 4),
+			int(options->getheight() / 1.4)));
 
 		man3->setlocation(sf::Vector2i(
-			options->getwidth() / 6,
-			options->getheight() / 1.55));
+			int(options->getwidth() / 6),
+			int(options->getheight() / 1.55)));
 
 		man4->setlocation(sf::Vector2i(
 			options->getwidth() / 2 + options->getwidth() / 16,
 			options->getheight() / 22 ));
 
-		bt_create->refreshState(sf::Mouse::getPosition(*gamewindow->getWindow()));
-		bt_back->refreshState(sf::Mouse::getPosition(*gamewindow->getWindow()));
+		bt_create->refreshState();
+		bt_back->refreshState();
 
 		bt_create->playsound(bt_create->getcurrentstate());
 		bt_back->playsound(bt_back->getcurrentstate());
@@ -100,11 +100,13 @@ void GameCreatorMenu::show()
 		nc_players->add(gamewindow);
 		nc_bots->add(gamewindow);
 
-		if (nc_bots->isclick())
-			nc_players->setvalue(maxvalueingame - nc_bots->getvalue());
-
 		if (nc_players->isclick())
-			nc_bots->setvalue(maxvalueingame - nc_players->getvalue());
+			if (nc_players->getvalue() + nc_bots->getvalue() >= maxvalueingame)
+				nc_bots->decvalue();
+
+		if(nc_bots->isclick())
+			if (nc_players->getvalue() + nc_bots->getvalue() >= maxvalueingame)
+				nc_players->decvalue();
 
 		gamewindow->draw();
 		gamewindow->procEvents();
@@ -113,5 +115,12 @@ void GameCreatorMenu::show()
 
 		if (bt_back->isclick())
 			break;
+
+		if (bt_create->isclick())
+		{
+			if (game == NULL)
+				game = new Game(nc_players->getvalue(), nc_bots->getvalue());
+			game->show();
+		}
 	}
 }

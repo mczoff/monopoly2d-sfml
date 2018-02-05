@@ -1,7 +1,7 @@
-#include "Game.h"
+#include "GameHub.h"
 
 int main()
 {
-	Game game;
-	return game.open();
+	GameHub gamegub;
+	return gamegub.open();
 }

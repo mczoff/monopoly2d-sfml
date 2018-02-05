@@ -18,7 +18,7 @@ Background::~Background()
 	
 }
 
-Background* Background::loadBackgroundFromFile(char* i_path)
+Background* Background::loadFromFile(char* i_path)
 {
 	Background* tmp = new Background(i_path);
 	return tmp;

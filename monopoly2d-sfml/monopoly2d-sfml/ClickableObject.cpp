@@ -46,16 +46,18 @@ sf::Sprite* ClickableObject::getpressed_sprite()
 	return pressed->getSprite();
 }
 
-void ClickableObject::refreshState(sf::Vector2i i_mouseposition)
+void ClickableObject::refreshState()
 {
+	sf::Vector2i mouseposition = sf::Mouse::getPosition(*GameWindow::getInstance()->getWindow());
+
 	if (!GameWindow::getInstance()->hasFocus())
 		return;
 
 	if (
-		   i_mouseposition.x > position.x
-		&& i_mouseposition.x < position.x + getcurrentSprite()->getLocalBounds().width
-		&& i_mouseposition.y > position.y
-		&& i_mouseposition.y < position.y + getcurrentSprite()->getLocalBounds().height)
+		mouseposition.x > position.x
+		&& mouseposition.x < position.x + getcurrentSprite()->getLocalBounds().width
+		&& mouseposition.y > position.y
+		&& mouseposition.y < position.y + getcurrentSprite()->getLocalBounds().height)
 	{
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
 		{
@@ -104,14 +106,6 @@ void ClickableObject::setposition(sf::Vector2i i_position)
 	pressed->setlocation(i_position);
 }
 
-void ClickableObject::doisclick(ICommand* i_command)
-{
-
-	if (getcurrentstate() == StateObject::Hover && laststate == StateObject::Click)
-		i_command->execute();
-	laststate = state;
-}
-
 bool ClickableObject::isclick()
 {
 	bool tmp = false;
@@ -121,4 +115,10 @@ bool ClickableObject::isclick()
 	return tmp;
 }
 
+void ClickableObject::doisclick(ICommand* i_command)
+{
 
+	if (getcurrentstate() == StateObject::Hover && laststate == StateObject::Click)
+		i_command->execute();
+	laststate = state;
+}

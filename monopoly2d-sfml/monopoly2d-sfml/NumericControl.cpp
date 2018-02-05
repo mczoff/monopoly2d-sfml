@@ -106,7 +106,9 @@ void NumericControl::loadfontFromFile(char* i_path)
 
 void NumericControl::settextposition(sf::Vector2i i_position)
 {
-	text->setPosition(sf::Vector2f(i_position.x, i_position.y));
+	text->setPosition(sf::Vector2f(
+		float(i_position.x), 
+		float(i_position.y)));
 }
 
 
@@ -116,12 +118,18 @@ void NumericControl::add(GameWindow* i_gamewindow)
 	refreshtext(sf::Color::Black);
 
 	getco_down()->setposition(position);
-	settextposition(sf::Vector2i(position.x + getco_up()->getcurrentSprite()->getGlobalBounds().width, position.y + getco_up()->getcurrentSprite()->getGlobalBounds().height / 4));
-	getco_up()->setposition(sf::Vector2i(position.x + getco_up()->getcurrentSprite()->getGlobalBounds().width + text->getGlobalBounds().width, position.y));
+
+	settextposition(sf::Vector2i(
+		int(position.x + getco_up()->getcurrentSprite()->getGlobalBounds().width), 
+		int(position.y + getco_up()->getcurrentSprite()->getGlobalBounds().height / 4)));
+
+	getco_up()->setposition(sf::Vector2i(
+		int(position.x + getco_up()->getcurrentSprite()->getGlobalBounds().width + text->getGlobalBounds().width),
+		position.y));
 	
-	getco_down()->refreshState(sf::Mouse::getPosition(*GameWindow::getInstance()->getWindow()));
+	getco_down()->refreshState();
 	
-	getco_up()->refreshState(sf::Mouse::getPosition(*GameWindow::getInstance()->getWindow()));
+	getco_up()->refreshState();
 	if (getco_up()->isclick())
 	{
 		flagclick = true;
@@ -129,7 +137,7 @@ void NumericControl::add(GameWindow* i_gamewindow)
 	}
 		
 
-	getco_down()->refreshState(sf::Mouse::getPosition(*GameWindow::getInstance()->getWindow()));
+	getco_down()->refreshState();
 	if (getco_down()->isclick())
 	{
 		flagclick = true;
@@ -145,4 +153,14 @@ void NumericControl::refreshtext(const sf::Color i_color)
 {
 	text->setString(std::to_string(value));
 	text->setFillColor(i_color);
+}
+
+int NumericControl::getmin()
+{
+	return min;
+}
+
+int NumericControl::getmax()
+{
+	return max;
 }

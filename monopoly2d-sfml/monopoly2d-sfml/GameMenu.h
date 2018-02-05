@@ -25,7 +25,7 @@ class GameMenu : public IShowable
 
 	ICommand* exitcommand;
 	ICommand* showoptionscommand;
-	ICommand* showgamecreatormenucommand;
+	ICommand* showgameselectmenucommand;
 
 	GameButton* bt_game;
 	GameButton* bt_options;

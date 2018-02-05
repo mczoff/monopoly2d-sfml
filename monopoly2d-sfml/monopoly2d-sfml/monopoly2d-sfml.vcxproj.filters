@@ -13,15 +13,21 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="gameobject">
+      <UniqueIdentifier>{aa2d1924-7770-4384-90d1-2452d14e8bc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gameobject\h files">
+      <UniqueIdentifier>{a79ca5ed-a679-4e24-93c8-1559830ed222}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gameobject\cpp files">
+      <UniqueIdentifier>{9193c9e0-5550-4dc4-b1b6-d365e19f6738}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
     <ClCompile Include="Options.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
     <ClCompile Include="GameWindow.cpp">
@@ -87,12 +93,24 @@
     <ClCompile Include="NumericControl.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
+    <ClCompile Include="GameHub.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="GameComponentBuilder.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="Field.cpp">
+      <Filter>gameobject\cpp files</Filter>
+    </ClCompile>
+    <ClCompile Include="Site.cpp">
+      <Filter>gameobject\cpp files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Options.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
     <ClInclude Include="GameWindow.h">
@@ -169,6 +187,30 @@
     </ClInclude>
     <ClInclude Include="IDrawableControl.h">
       <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="GameHub.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="StateGame.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="GameComponentBuilder.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="Field.h">
+      <Filter>gameobject\h files</Filter>
+    </ClInclude>
+    <ClInclude Include="IGameCommand.h">
+      <Filter>gameobject\h files</Filter>
+    </ClInclude>
+    <ClInclude Include="Site.h">
+      <Filter>gameobject\h files</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorSite.h">
+      <Filter>gameobject</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

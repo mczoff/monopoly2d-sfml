@@ -4,7 +4,7 @@
 
 GameSelectMenu::GameSelectMenu()
 {
-	background = Background::loadBackgroundFromFile("src/backgroundmenu.png");
+	background = Background::loadFromFile("src/backgroundmenu.png");
 
 	bt_newgame = new GameButton("src/buttons/snewgame.png", "src/buttons/hnewgame.png", "src/buttons/pnewgame.png");
 	bt_continuegame = new GameButton("src/buttons/scontinue.png", "src/buttons/hcontinue.png", "src/buttons/pcontinue.png");
@@ -41,16 +41,29 @@ void GameSelectMenu::show()
 {
 	while (gamewindow->isOpen())
 	{
-		ogirl->setlocation(sf::Vector2i(options->getwidth() / 7 - ogirl->getSprite()->getGlobalBounds().width / 2, options->getheight() / 2 - ogirl->getSprite()->getGlobalBounds().height / 2));
-		oman->setlocation(sf::Vector2i(options->getwidth() / 1.15 - oman->getSprite()->getGlobalBounds().width / 2, options->getheight() / 2 - oman->getSprite()->getGlobalBounds().height / 2));
+		ogirl->setlocation(sf::Vector2i(
+			int(options->getwidth() / 7 - ogirl->getSprite()->getGlobalBounds().width / 2),
+			int(options->getheight() / 2 - ogirl->getSprite()->getGlobalBounds().height / 2)));
+		
+		oman->setlocation(sf::Vector2i(
+			int(options->getwidth() / 1.15 - oman->getSprite()->getGlobalBounds().width / 2),
+			int(options->getheight() / 2 - oman->getSprite()->getGlobalBounds().height / 2)));
 
-		bt_newgame->setlocation(sf::Vector2i(options->getwidth() / 2 - bt_newgame->getcurrentSprite()->getGlobalBounds().width / 2, options->getheight() / 3 - bt_newgame->getcurrentSprite()->getGlobalBounds().height / 2));
-		bt_continuegame->setlocation(sf::Vector2i(options->getwidth() / 2 - bt_continuegame->getcurrentSprite()->getGlobalBounds().width / 2, options->getheight() / 2 - bt_continuegame->getcurrentSprite()->getGlobalBounds().height / 2));
-		bt_back->setlocation(sf::Vector2i(options->getwidth() / 2 - bt_back->getcurrentSprite()->getGlobalBounds().width / 2, options->getheight() / 1.5 - bt_back->getcurrentSprite()->getGlobalBounds().height / 2));
+		bt_newgame->setlocation(sf::Vector2i(
+			int(options->getwidth() / 2 - bt_newgame->getcurrentSprite()->getGlobalBounds().width / 2),
+				int(options->getheight() / 3 - bt_newgame->getcurrentSprite()->getGlobalBounds().height / 2)));
 
-		bt_newgame->refreshState(sf::Mouse::getPosition(*gamewindow->getWindow()));
-		bt_continuegame->refreshState(sf::Mouse::getPosition(*gamewindow->getWindow()));
-		bt_back->refreshState(sf::Mouse::getPosition(*gamewindow->getWindow()));
+		bt_continuegame->setlocation(sf::Vector2i(
+			int(options->getwidth() / 2 - bt_continuegame->getcurrentSprite()->getGlobalBounds().width / 2),
+			int(options->getheight() / 2 - bt_continuegame->getcurrentSprite()->getGlobalBounds().height / 2)));
+		
+		bt_back->setlocation(sf::Vector2i(
+			int(options->getwidth() / 2 - bt_back->getcurrentSprite()->getGlobalBounds().width / 2),
+			int(options->getheight() / 1.5 - bt_back->getcurrentSprite()->getGlobalBounds().height / 2)));
+
+		bt_newgame->refreshState();
+		bt_continuegame->refreshState();
+		bt_back->refreshState();
 
 		bt_newgame->playsound(bt_newgame->getcurrentstate());
 		bt_continuegame->playsound(bt_continuegame->getcurrentstate());
@@ -69,6 +82,7 @@ void GameSelectMenu::show()
 		gamewindow->clear();
 
 		bt_newgame->doisclick(showoptionscommand);
+
 		if (bt_back->isclick())
 			break;
 	}

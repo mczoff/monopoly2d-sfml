@@ -11,7 +11,7 @@ class Options
 
 	static Options* instance;
 
-	sf::Uint32 flagStyleWindow = sf::Style::Titlebar | sf::Style::Close;
+	sf::Uint32 flagStyleWindow =  sf::Style::Titlebar | sf::Style::Close;//sf::Style::Fullscreen;
 
 	char* nameWindow;
 	sf::VideoMode videomode;
@@ -38,7 +38,7 @@ public:
 	void setvideomode(sf::VideoMode i_videomode);
 	void setismute(bool i_ismute);
 
-	int getStyleFlag();
+	sf::Uint32 getStyleFlag();
 
 	void loadDefault();
 	void saveoptions(char* i_path);

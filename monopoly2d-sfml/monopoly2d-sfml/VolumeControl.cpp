@@ -33,16 +33,16 @@ void VolumeControl::add(GameWindow* i_gamewindow)
 	i_gamewindow->add(bt_up->getcurrentSprite());
 	i_gamewindow->add(bt_down->getcurrentSprite());
 	
-	for (int i = 0; i < volumestate.size(); i++)
+	for (size_t i = 0; i < volumestate.size(); i++)
 	{
-		volumestate.at(i)->setlocation(sf::Vector2i(position.x + (spacevalue * i) + bt_down->getcurrentSprite()->getGlobalBounds().width, position.y));
+		volumestate.at(i)->setlocation(sf::Vector2i(position.x + (spacevalue * i) + int(bt_down->getcurrentSprite()->getGlobalBounds().width), position.y));
 		i_gamewindow->add(volumestate.at(i)->getSprite());
 	}
 }
 
 void VolumeControl::clearState()
 {
-	for (int i = 0; i < volumestate.size(); i++)
+	for (size_t i = 0; i < volumestate.size(); i++)
 		volumestate.at(i)->~StaticGraphicObject();
 	volumestate.clear();
 }

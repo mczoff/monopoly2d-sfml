@@ -1,30 +1,31 @@
 #pragma once
 
-
-
+#include "IShowable.h"
+#include "StateGame.h"
 #include "GameWindow.h"
-#include "GameMenu.h"
-#include "Options.h"
-#include "LogoService.h"
+#include "Background.h"
+#include "GameComponentBuilder.h"
+#include "StaticGraphicObject.h"
 
-//LIST TODO
-// TODO: getco_down()->refreshState(sf::Mouse::getPosition(*GameWindow::getInstance()->getWindow())); ->  getco_down()->refreshState();
-// TODO: NUMBERS FONTS FOR NUMERIC AND RESOLUTION CONTROLS
-// TODO: IClickabel with doisclick and isclick()
-//
-//
-
-
-class Game
+class Game : public IShowable
 {
-	Options* options;
 	GameWindow* gamewindow;
-	LogoService* logoservice;
-	GameMenu* gamemenu;
+
+	Background* background;
+	StaticGraphicObject* board;
+
+	int c_gamblers;
+	int c_players;
+	int c_bots;
+
+	int mode;
+
+	GameComponentBuilder gamecomponentbuilder;
+
 public:
-	Game();
-	bool open();
-	
+	void show();
+
+	Game(int ic_players, int ic_bots);
 	virtual ~Game();
 };
 

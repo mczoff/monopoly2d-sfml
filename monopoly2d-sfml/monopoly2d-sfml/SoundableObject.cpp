@@ -18,8 +18,8 @@ SoundableObject::~SoundableObject()
 
 void SoundableObject::playsound(int i_state)
 {
-	click_sound->setVolume(Options::getInstance()->getsoundvolume());
-	hover_sound->setVolume(Options::getInstance()->getsoundvolume());
+	click_sound->setVolume(float(Options::getInstance()->getsoundvolume()));
+	hover_sound->setVolume(float(Options::getInstance()->getsoundvolume()));
 
 
 	if (!GameWindow::getInstance()->hasFocus())

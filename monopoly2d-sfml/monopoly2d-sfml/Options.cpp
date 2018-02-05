@@ -77,7 +77,7 @@ int Options::getheight()
 	return videomode.height;
 }
 
-int Options::getStyleFlag()
+sf::Uint32 Options::getStyleFlag()
 {
 	return flagStyleWindow;
 }

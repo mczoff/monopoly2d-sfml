@@ -15,7 +15,7 @@ public:
 	void openFromFile(char* i_path);
 	void stop();
 	void pause();
-	void setvolume(float i_volume);
+	void setvolume(int i_volume);
 	float getvolume();
 	void clear();
 	void setloop(bool i_value);

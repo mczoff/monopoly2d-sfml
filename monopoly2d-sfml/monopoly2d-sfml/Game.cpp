@@ -1,40 +1,33 @@
 #include "Game.h"
 
-
-
-Game::Game()
+Game::Game(int ic_players, int ic_bots): 
+	c_players(ic_players),
+	c_bots(ic_bots),
+	c_gamblers(ic_players + ic_bots)
 {
+	gamewindow = GameWindow::getInstance();
+	background = Background::loadFromFile("src/monopoly/background.png");
+	board = gamecomponentbuilder.buildBoard();
 }
-
 
 Game::~Game()
-{
+{ 
+	
 }
 
-bool Game::open()
+
+void Game::show()
 {
-	options = Options::getInstance();
-	options->loadoptions("config.ini");
-	gamewindow = GameWindow::createInstance(
-		options->getwidth(),
-		options->getheight(),
-		options->getnameWindow(),
-		options->getStyleFlag());
 
-	logoservice = new LogoService();
-	gamemenu = new GameMenu();
+	while (gamewindow->isOpen())
+	{
+		gamewindow->add(background->getSizebleSprite());
+		gamewindow->add(board->getSprite());
+		
 
-	//logoservice->loadlogo("logo/kt.jpg");
-	//logoservice->showlogo(gamewindow, 0.3, 2);
-	//logoservice->loadlogo("logo/ptf.jpg");
-	//logoservice->showlogo(gamewindow, 0.3, 2);
-	//logoservice->loadlogo("logo/rhorvald.jpg");
-	//logoservice->showlogo(gamewindow, 0.3, 2);
-
-	gamemenu->show();
-
-	Options::getInstance()->saveoptions("config.ini");
-
-	return 0;
+		gamewindow->draw();
+		gamewindow->procEvents();
+		gamewindow->render();
+		gamewindow->clear();
+	}
 }
-

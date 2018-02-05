@@ -38,7 +38,7 @@ void GameWindow::close()
 
 void GameWindow::draw()
 {
-	for (int i = 0; i < drawable_objects.size(); i++)
+	for (size_t i = 0; i < drawable_objects.size(); i++)
 	{
 		window->draw(*drawable_objects.at(i));
 	}

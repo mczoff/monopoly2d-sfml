@@ -4,7 +4,7 @@
 
 GameMenu::GameMenu()
 {
-	background = Background::loadBackgroundFromFile("src/backgroundmenu.png"); 
+	background = Background::loadFromFile("src/backgroundmenu.png"); 
 	gamewindow = GameWindow::getInstance();
 	options = Options::getInstance();
 
@@ -24,7 +24,7 @@ GameMenu::GameMenu()
 
 	exitcommand = new ExitCommand();
 	showoptionscommand = new ShowCommand(optionsmenu);
-	showgamecreatormenucommand = new ShowCommand(gameselectmenu);
+	showgameselectmenucommand = new ShowCommand(gameselectmenu);
 
 	musicservice = MusicService::getInstance();
 }
@@ -39,7 +39,7 @@ GameMenu::~GameMenu()
 	delete exitcommand;
 	delete exitcommand;
 	delete showoptionscommand;
-	delete showgamecreatormenucommand;
+	delete showgameselectmenucommand;
 }
 
 void GameMenu::show()
@@ -51,24 +51,34 @@ void GameMenu::show()
 
 	while (gamewindow->isOpen())
 	{
-		bt_game->setlocation(sf::Vector2i(options->getwidth() / 12, options->getheight() / 3 - bt_game->getcurrentSprite()->getGlobalBounds().height / 2));
-		bt_options->setlocation(sf::Vector2i(options->getwidth() / 12, options->getheight() / 2 - bt_options->getcurrentSprite()->getGlobalBounds().height / 2));
-		bt_exit->setlocation(sf::Vector2i(options->getwidth() / 12, options->getheight() / 1.5 - bt_exit->getcurrentSprite()->getGlobalBounds().height / 2));
+		bt_game->setlocation(sf::Vector2i(
+			int(options->getwidth() / 12),
+			int(options->getheight() / 3 - bt_game->getcurrentSprite()->getGlobalBounds().height / 2)));
+		
+		bt_options->setlocation(sf::Vector2i(
+			int(options->getwidth() / 12),
+			int(options->getheight() / 2 - bt_options->getcurrentSprite()->getGlobalBounds().height / 2)));
+		
+		bt_exit->setlocation(sf::Vector2i(
+			int(options->getwidth() / 12),
+			int(options->getheight() / 1.5 - bt_exit->getcurrentSprite()->getGlobalBounds().height / 2)));
 
 		man->setlocation(sf::Vector2i(
-			options->getwidth() / 4 + options->getwidth() / 2 - man->getSprite()->getGlobalBounds().width / 4,
-			options->getheight() / 2 - man->getSprite()->getGlobalBounds().height / 2));
+			int(options->getwidth() / 4 + options->getwidth() / 2 - man->getSprite()->getGlobalBounds().width / 4),
+			int(options->getheight() / 2 - man->getSprite()->getGlobalBounds().height / 2)));
 
 		//MAYBE: DO EASIER
 		if (musicservice->getvolume() == 0 && options->getmusicvolume() != 0)
 			musicservice->play();
+
 		musicservice->setvolume(options->getmusicvolume());
+
 		if (musicservice->getvolume() == 0)
 			musicservice->stop();
 
-		bt_game->refreshState(sf::Mouse::getPosition(*gamewindow->getWindow()));
-		bt_options->refreshState(sf::Mouse::getPosition(*gamewindow->getWindow()));
-		bt_exit->refreshState(sf::Mouse::getPosition(*gamewindow->getWindow()));
+		bt_game->refreshState();
+		bt_options->refreshState();
+		bt_exit->refreshState();
 
 		bt_game->playsound(bt_game->getcurrentstate());
 		bt_options->playsound(bt_options->getcurrentstate());
@@ -87,7 +97,7 @@ void GameMenu::show()
 
 		bt_exit->doisclick(exitcommand);
 		bt_options->doisclick(showoptionscommand);
-		bt_game->doisclick(showgamecreatormenucommand);
+		bt_game->doisclick(showgameselectmenucommand);
 	}
 
 	musicservice->stop();

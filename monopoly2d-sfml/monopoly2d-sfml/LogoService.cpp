@@ -43,7 +43,8 @@ bool LogoService::autoselectcontrast(double i_pow, double i_seconds)
 		if ((int)logo->getConsrast() == 255)
 		{
 			mode = 1;
-			sf::sleep(sf::seconds(i_seconds));
+			//MAYBE ANOTHER
+			sf::sleep(sf::seconds(float(i_seconds)));
 		}
 	}
 	if (mode == 1)

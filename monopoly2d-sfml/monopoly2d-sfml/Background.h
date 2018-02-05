@@ -18,5 +18,5 @@ public:
 	sf::Sprite* getSizebleSprite();
 
 	virtual ~Background();
-	static Background* loadBackgroundFromFile(char* i_path);
+	static Background* loadFromFile(char* i_path);
 };

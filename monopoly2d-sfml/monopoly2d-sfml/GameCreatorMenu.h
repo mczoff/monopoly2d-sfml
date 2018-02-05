@@ -5,12 +5,15 @@
 #include "SFML\Graphics.hpp"
 #include "NumericControl.h"
 #include "Background.h"
+#include "Game.h"
 
 class GameCreatorMenu : public IShowable
 {
-	int maxvalueingame = 4;
+	int maxvalueingame = 9;
 
 	Background* background;
+
+	Game* game;
 
 	NumericControl* nc_players;
 	NumericControl* nc_bots;

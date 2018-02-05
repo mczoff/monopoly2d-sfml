@@ -41,10 +41,10 @@ void StaticGraphicObject::setSize(sf::Vector2i i_size)
 
 void StaticGraphicObject::setlocation(sf::Vector2i i_location)
 {
-	getSprite()->setPosition(sf::Vector2f(i_location.x,i_location.y));
+	getSprite()->setPosition(sf::Vector2f(float(i_location.x), float(i_location.y)));
 }
 
 sf::Vector2i StaticGraphicObject::getsize()
 {
-	return sf::Vector2i(getSprite()->getGlobalBounds().width, getSprite()->getGlobalBounds().height);
+	return sf::Vector2i(int(getSprite()->getGlobalBounds().width), int(getSprite()->getGlobalBounds().height));
 }

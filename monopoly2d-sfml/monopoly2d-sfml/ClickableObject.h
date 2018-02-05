@@ -23,14 +23,14 @@ class ClickableObject
 	sf::Sprite* getpressed_sprite();
 
 public:
-	void doisclick(ICommand* i_command);
 	bool isclick();
+	void doisclick(ICommand* i_command);
 
 	void loadsource_imageFromFile(char* i_path);
 	void loadhover_imageFromFile(char* i_path);
 	void loadpressed_imageFromFile(char* i_path);
 
-	void refreshState(sf::Vector2i position);
+	void refreshState();
 	void setState(int i_state);
 	void setposition(sf::Vector2i i_position);
 

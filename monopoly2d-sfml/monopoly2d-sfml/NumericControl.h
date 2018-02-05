@@ -39,6 +39,9 @@ public:
 	void setmin(int i_min);
 	void setmax(int i_max);
 
+	int getmin();
+	int getmax();
+
 	int getvalue();
 	void setvalue(int i_value);
 

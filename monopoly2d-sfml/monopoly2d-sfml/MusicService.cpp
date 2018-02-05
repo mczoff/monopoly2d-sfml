@@ -42,9 +42,9 @@ void MusicService::clear()
 	delete music;
 }
 
-void MusicService::setvolume(float i_volume)
+void MusicService::setvolume(int i_volume)
 {
-	music->setVolume(i_volume);
+	music->setVolume(float(i_volume));
 }
 
 bool MusicService::isPlaying()
